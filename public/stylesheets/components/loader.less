@@ -1,0 +1,54 @@
+// RevYou LOADER COMPONENT
+
+#loader {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: @background-standard;
+    z-index: 500;
+    .animate-standard(0.5s);
+    .title-holder {
+        height: inherit;
+        .centerXYFlex;
+        h1 {
+            font-weight: bold;
+            font-style: italic;
+            font-size: 5em;
+            letter-spacing: 3px;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: @typography-dark;
+            color: transparent;
+            .blinker {
+                font-size: 1.2em;
+                animation: blink 2s cubic-bezier(1,-0.31, 0.01, 1.24) none infinite;
+                -webkit-text-stroke-color: transparent;
+            }
+            span {
+                -webkit-text-stroke-color: @orange-c;
+            }
+        }
+    }
+}
+
+@keyframes blink {
+    0% {
+        color: @orange-c;
+        //-webkit-text-stroke-color: @typography-light;
+    }
+    25% {
+        color: transparent;
+        //-webkit-text-stroke-color: transparent;
+    }
+    50% {
+        color: @orange-c;
+        //-webkit-text-stroke-color: @typography-light;
+    }
+    75% {
+        color: transparent;
+        //-webkit-text-stroke-color: transparent;
+    }
+    100% {
+        color: @orange-c;
+        //-webkit-text-stroke-color: black;
+    }
+}

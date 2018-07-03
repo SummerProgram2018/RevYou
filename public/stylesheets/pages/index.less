@@ -1,0 +1,59 @@
+// RevYou INDEX PAGE STYLE
+
+header {
+    height: 100vh;
+    width: 100%;
+    background-color: @background-standard;
+    .title-holder,
+    .background-holder {
+        position: absolute;
+        top: 0;
+        height: inherit;
+        width: inherit;
+    }
+
+    .title-holder {
+        h1 {
+            height: inherit;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 5em;
+            letter-spacing: 5px;
+            color: @typography-dark;
+            .centerXYFlex;
+        }
+    }
+    .background-holder {
+        background-color: @background-standard;
+        filter: blur(3px);
+        transform: scaleZ(1.2);
+    }
+}
+
+main {
+    position: relative;
+    height: 300px;
+    background-color: @background-standard;
+    z-index: 1;
+    border-top: 1px solid white;
+    p {
+        display: inline;
+        color: @typography-dark;
+        font-weight: bold;
+        .centerXY;
+        span {
+            color: @hot-pink-c;
+        }
+        span:first-of-type {
+            color: @light-blue-c;
+        }
+    }
+    form {
+        input {
+
+        }
+        button {
+
+        }
+    }
+}
