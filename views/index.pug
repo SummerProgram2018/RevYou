@@ -5,11 +5,12 @@ block content
         .title-holder
             div
                 h1="RevYou"
-                p="Find Reviews On: Eggs"
+                p="Find Reviews On: "
+                    span="Eggs"
                 br
                 form(action="query" method="GET")
                     div.form-group
-                        input.form-control(name="query" type="text" placeholder="Games")
+                        input.form-control(name="query" type="text" placeholder="Games, Shoes, Movies, Books ...")
                     div.form-group
                         input.form-control(type="submit")
     main#index
