@@ -2,15 +2,16 @@ extends layout
 
 block content
     header
-        .background-holder
         .title-holder
-            h1="RevYou"
-            p="Review 4 You"
-            form(action="query" method="GET")
-                div.form-group
-                    input.form-control(name="query" type="text" placeholder="www.google.com")
-                div.form-group
-                    input.form-control(type="submit")
+            div
+                h1="RevYou"
+                p="Find Reviews On: Eggs"
+                br
+                form(action="query" method="GET")
+                    div.form-group
+                        input.form-control(name="query" type="text" placeholder="Games")
+                    div.form-group
+                        input.form-control(type="submit")
     main#index
         p 
             span Coming
