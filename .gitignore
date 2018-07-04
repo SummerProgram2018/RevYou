@@ -63,3 +63,7 @@ typings/
 public/stylesheets/*.css
 
 public/javascripts/*.js
+
+routes/*.js
+
+src/*.js
