@@ -5,4 +5,5 @@ $(document).ready =>
         setTimeout () =>
             $("body").css "overflow-y", "auto"
             $("#loader").addClass "hidden"
-        , 100000
+        , 10
+    
