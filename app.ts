@@ -1,16 +1,16 @@
-let express = require('express');
-let path = require('path');
-let lessMiddleware = require('less-middleware');
-let cookieParser = require('cookie-parser');
-let logger = require('morgan');
-let bodyParser = require('body-parser');
-let app = express();
+import * as express from "express";
+import * as path from "path";
+import * as lessMiddleware from "less-middleware";
+import * as cookieParser from "cookie-parser";
+import * as logger from "morgan";
+import * as bodyParser from "body-parser";
+import { router as index } from "./routes/index";
+import { router as user } from "./routes/user";
+import { router as review } from "./routes/review";
+import { router as query } from "./routes/query";
 
-let index = require('./routes/index');
-let user = require('./routes/user');
-let review = require('./routes/review');
-let query = require('./routes/query');
-  
+export const app = express();
+
 app.use(lessMiddleware(__dirname + '/public', [{
     render: {
         compress: true
@@ -32,18 +32,16 @@ app.use('/user', user);
 app.use('/review', review);
 app.use('/query', query);
 
-app.use(function(req, res, next) {
-    let err = new Error('Not Found');
+app.use((req, res, next) => {
+    let err: any = new Error('Not Found');
     err.status = 404;
     next(err);
 });
 
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
     res.status(err.status || 500);
     res.render('error');
 });
-
-module.exports = app;

@@ -1,11 +1,8 @@
 import * as express from "express"
-let router = express.Router();
+export const router = express.Router();
 
-router.get("/", (req, res, next) =>
-{
+router.get("/", (req, res, next) => {
     res.render("index", {
         "title": "RevYou"
     });
 });
-
-module.exports = router;
