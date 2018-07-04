@@ -7,6 +7,9 @@ let bodyParser = require('body-parser');
 let app = express();
 
 let index = require('./routes/index');
+let user = require('./routes/user');
+let review = require('./routes/review');
+let query = require('./routes/query');
   
 app.use(lessMiddleware(__dirname + '/public', [{
     render: {
@@ -25,6 +28,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/user', user);
+app.use('/review', review);
+app.use('/query', query);
 
 app.use(function(req, res, next) {
     let err = new Error('Not Found');
