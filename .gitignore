@@ -69,3 +69,5 @@ routes/*.js
 src/*.js
 
 bin/*.js
+
+/**.js
