@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('dotma-site:server');
-var http = require('http');
+import { app } from "../app";
+import * as debug from "debug"
+import * as http from "http";
 
 /**
  * Get port from environment and store in Express.
@@ -34,7 +34,7 @@ server.on('listening', onListening);
  * Normalize a port into a number, string, or false.
  */
 
-function normalizePort(val) {
+function normalizePort(val): any {
 	var port = parseInt(val, 10);
 
 	if (isNaN(port)) {
@@ -54,7 +54,7 @@ function normalizePort(val) {
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error) {
+function onError(error): void {
 	if (error.syscall !== 'listen') {
 	throw error;
 }
@@ -80,7 +80,7 @@ switch (error.code) {
  * Event listener for HTTP server "listening" event.
  */
 
-function onListening() {
+function onListening(): void {
 	var addr = server.address();
 	var bind = typeof addr === 'string' ? 'pipe ' + addr: 'port ' + addr.port;
 	debug('Listening on ' + bind);
