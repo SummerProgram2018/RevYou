@@ -67,3 +67,7 @@ public/javascripts/*.js
 routes/*.js
 
 src/*.js
+
+bin/*.js
+
+/*.js

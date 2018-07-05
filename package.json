@@ -6,20 +6,21 @@
     "node": "10.4.0"
   },
   "description": "James's python dungeon",
-  "main": "app.js",
+  "main": "bin/www",
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "nodemon -e less",
     "test": "mocha",
     "postinstall": "coffee -c . && tsc"
   },
-  "repository": "git+https://github.com/aXises/dotma-site.git",
-  "author": "DOTMA",
+  "repository": "git+https://github.com/SummerProgram2018/RevYou",
+  "author": "RATBIT",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/aXises/dotma-site/issues"
   },
   "homepage": "https://github.com/aXises/dotma-site#readme",
   "dependencies": {
+    "@types/node": "^10.5.1",
     "bootstrap": "^4.1.1",
     "coffeescript": "^2.3.1",
     "cookie-parser": "^1.4.3",
