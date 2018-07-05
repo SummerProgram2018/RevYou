@@ -70,4 +70,4 @@ src/*.js
 
 bin/*.js
 
-/**.js
+/*.js
