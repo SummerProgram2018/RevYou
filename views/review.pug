@@ -1,5 +1,15 @@
 extends layout
 block content
-     h1(align="center")="this is the review page"
-     main#review
-       
+    h1(align="center")="this is the review page"
+    main#review
+        each x in [1, 2, 3, 4, 5]
+            section
+                div#tupian 
+                    img(src="", alt="",width="100px") 
+                div#des
+                    h1(size="3")="this is the description " + x
+                    h2(size="3")="this is the description"
+                    h3(size="3")="this is the description"
+                    h1(size="3")="this is the comment" 
+                div#num
+                    h1(size="3")="No.1" 
