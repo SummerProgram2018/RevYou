@@ -6,6 +6,7 @@ nav {
     height: 100vh;
     z-index: 5;
     background-color: white;
+    .animate-standard(0.2s);
     .button-container {
         height: inherit;
         ul {
@@ -32,5 +33,21 @@ nav {
         background-color: @orange-c;
         opacity: 100;
         .animate-standard(0.1s);
+    }
+}
+
+#nav-button {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    z-index: 6;
+    cursor: pointer;
+    .centerXYFlex;
+    ion-icon {
+        font-size: 55px;
+        .animate-standard(0.2s);
+    }
+    &:hover ion-icon {
+        color: @orange-c;
     }
 }
