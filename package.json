@@ -8,7 +8,7 @@
   "description": "James's python dungeon",
   "main": "bin/www",
   "scripts": {
-    "start": "nodemon -e less",
+    "start": "nodemon -e less,js,coffee,ts,json",
     "test": "mocha",
     "postinstall": "coffee -c . && tsc"
   },
@@ -26,6 +26,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "imagesloaded": "^4.1.4",
+    "ionicons": "^4.2.4",
     "jquery": "^3.3.1",
     "less-middleware": "^3.0.0",
     "morgan": "^1.9.0",
