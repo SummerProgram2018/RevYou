@@ -12,8 +12,8 @@
     "test": "mocha",
     "postinstall": "coffee -c . && tsc"
   },
-  "repository": "git+https://github.com/aXises/dotma-site.git",
-  "author": "DOTMA",
+  "repository": "git+https://github.com/SummerProgram2018/RevYou",
+  "author": "RATBIT",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/aXises/dotma-site/issues"
