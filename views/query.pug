@@ -1,3 +1,15 @@
 extends layout
 block content
-     h1(align="center")="this is the query page"
+    h1(align="center")="this is the query page"
+    main#query
+        form(action="query" method="GET")
+            div.form-group
+                input.form-control(name="query" type="text" placeholder="Games, Shoes, Movies, Books ...")
+            div.form-group
+                input.form-control(type="submit")
+        each x in [1, 2, 3, 4, 5]
+            div.a
+                img(src="", alt="")
+                div.desc
+                    h3="title"
+                    h4="description" + x
