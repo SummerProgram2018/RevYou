@@ -1,0 +1,8 @@
+X-Varnish: 653933306
+Content-Encoding: gzip
+Accept-Ranges: bytes
+Vary: Accept-Encoding
+Server: Apache
+Location: https://store.steampowered.com/search/?sort_by=Released_DESC
+Date: Thu, 05 Jul 2018 02:09:14 GMT
+Content-Type: text/html; charset=UTF-8
