@@ -10,6 +10,7 @@ html
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Lato:400,700|Oswald:300,400,700")
         link(rel="stylesheet", type="text/css", href="/node_modules/reset.css/reset.css")
         link(rel="stylesheet", type="text/css", href="/node_modules/bootstrap/dist/css/bootstrap.min.css")
+        link(rel="stylesheet", type="text/css", href="/node_modules/ionicons/dist/css/ionicons.min.css")
         link(rel="stylesheet", type="text/css", href="/stylesheets/style.css")
         link(rel="icon" href="/images/favicon.ico")
         link(rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png")
@@ -28,14 +29,31 @@ html
                     |ev
                     span Y
                     |ou
+        #nav-button
+            ion-icon(name="keypad")
         nav
             .button-container
                 .bar
                 ul
-                    li Eggs
-                    li Games
-                    li Movies
-                    li Books
+                    li
+                        ion-icon(name="basket")
+                        p Anything
+                    li
+                        ion-icon(name="logo-game-controller-a")
+                        p Games
+                    li 
+                        ion-icon(name="tv")
+                        p Movies
+                    li 
+                        ion-icon(name="book")
+                        p Books
+                    li 
+                        ion-icon(name="shirt")
+                        p Clothes
+                    li 
+                        ion-icon(name="umbrella")
+                        p Other
     block content
     script(type="text/javascript" src="/javascripts/loader.js")
     script(type="text/javascript" src="/javascripts/navigation.js")
+    script(type="text/javascript" src="/node_modules/ionicons/dist/ionicons.js")
