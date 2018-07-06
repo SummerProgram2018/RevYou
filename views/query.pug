@@ -3,15 +3,21 @@ block content
     h1(align="center")="this is the query page"
     main#query
         form(action="query" method="GET")
-            div.form-group
-                input.form-control(name="query" type="text" placeholder="Games, Shoes, Movies, Books ...")
-            div.form-group
+            .form-group
+                input.form-control(name="search" type="text" placeholder="Games, Shoes, Movies, Books ...")
+            .form-group
                 input.form-control(type="submit")
         each x in array
-            div.a
-                img(src="", alt="")
-                div.desc
-                    h3=x.name
-                    h4=x.desc
+            section
+                .status-bar
+                    p="Rating: " + x.rating + "/10"
+                    p="Upvotes: 100"
+                    p="Reviews: 150"
+                .res
+                    .img-container
+                        img(src="", alt="")
+                    .desc
+                        h3=x.name
+                        p=x.desc
                     
         
