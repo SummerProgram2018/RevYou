@@ -11,9 +11,12 @@ header {
         width: inherit;
     }
 
-    .title-holder {
-        height: inherit;
+    .center-bar {
         position: relative;
+        width: 100%;
+        height: 300px;
+        background-color: rgba(255, 255, 255, 0.9);
+        .centerXY;
         h1, p {
             display: inline-block;
             font-style: italic;
@@ -44,33 +47,12 @@ header {
     }
 }
 
-.center-bar {
-    position: absolute;
-    width: 100%;
-    height: 300px;
-    background-color: white;
-    opacity: 0.9;
-    .centerXY;
-}
-
 main#index {
     position: relative;
     height: 300px;
     background-color: @background-standard;
     z-index: 1;
     border-top: 1px solid white;
-    p {
-        display: inline;
-        color: @typography-dark;
-        font-weight: bold;
-        .centerXY;
-        span {
-            color: @hot-pink-c;
-        }
-        span:first-of-type {
-            color: @light-blue-c;
-        }
-    }
     form {
         input {
 
