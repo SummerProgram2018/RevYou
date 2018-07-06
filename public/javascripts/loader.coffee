@@ -6,4 +6,5 @@ $(document).ready =>
             $("body").css "overflow-y", "auto"
             $("#loader").addClass "hidden"
         , 10
-    
+    $("body").css "overflow-y", "auto"
+    $("#loader").addClass "hidden"
