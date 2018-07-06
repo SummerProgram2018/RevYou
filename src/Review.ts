@@ -1,5 +1,5 @@
-import * as fs from "fs"
-import * as JSON from "JSON"
+import * as fs from "fs";
+import { ReviewField } from "ReviewField"; 
 
 export class Review {
     public readonly id: string;
@@ -17,14 +17,13 @@ export class Review {
     }
     
     public retrieveDb(id: string) {
-        return 
+        return; 
     }
 
     public saveReview(path: string) {
         const content = JSON.stringify(this);
         fs.writeFile(path, content, 'utf8', function (err: any) {
-            pass;
+            //
         });
     }
-
 }

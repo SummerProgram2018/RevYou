@@ -13,7 +13,7 @@ export class ReviewField {
         this.id = id;
         this.title = title;
         this.description = description;
-        if this.ratingMin <= rating <= this.ratingMax {
+        if (this.ratingMin <= rating && rating <= this.ratingMax) {
             this.rating = rating;
         } else {
             //TODO: throw error
