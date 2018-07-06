@@ -12,15 +12,35 @@ nav {
         ul {
             width: 100%;
             li {
+                position: relative;
                 text-align: center;
                 width: inherit;
                 height: 80px;
                 border-right: 1px solid transparent;
                 cursor: pointer;
                 .animate-standard(0.2s);
-            }
-            li:hover {
-                border-right: 1px solid @orange-c;
+                .centerXYFlex;
+                ion-icon {
+                    font-size: 30px;
+                    .animate-standard(0.2s)
+                }
+                p {
+                    position: absolute;
+                    left: 100px;
+                    opacity: 0;
+                    pointer-events: none;
+                    .animate-standard(0.1s);
+                }
+                &:hover {
+                    border-right: 1px solid @orange-c;
+                    ion-icon {
+                        color: @orange-c;
+                    }
+                    p {
+                        opacity: 1;
+                    }
+                }
+
             }
         }
         .centerXYFlex;
