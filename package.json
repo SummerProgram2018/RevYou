@@ -8,7 +8,7 @@
   "description": "James's python dungeon",
   "main": "bin/www",
   "scripts": {
-    "start": "nodemon -e less,js,coffee,ts,json",
+    "start": "nodemon -e less,js",
     "test": "mocha",
     "postinstall": "coffee -c . && tsc"
   },
