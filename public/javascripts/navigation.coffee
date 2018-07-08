@@ -1,13 +1,19 @@
 $(document).ready =>
-    $("nav").css "left", "-80px"
-    navOpen = false;
-    $("#nav-button").click =>
-        if navOpen then $("nav").css "left", "-80px"
-        else $("nav").css "left", "0px"
-        navOpen = !navOpen
+    $("nav#pages").css "left", "-80px"
+    $("nav#user-nav").css "right", "-80px"
+    navLeftOpen = false;
+    navRightOpen = false;
+    $("#nav-button-left").click =>
+        if navLeftOpen then $("nav#pages").css "left", "-80px"
+        else $("nav#pages").css "left", "0px"
+        navLeftOpen = !navLeftOpen
+    $("#nav-button-right").click =>
+        if navLeftOpen then $("nav#user-nav").css "right", "-80px"
+        else $("nav#user-nav").css "right", "0px"
+        navRightOpen = !navRightOpen    
     $("nav .button-container").hover =>
         $("nav .bar").addClass("hidden-i")
     , =>
         $("nav .bar").removeClass("hidden-i")
-    $("nav li").click ->
+    $("nav#pages li").click ->
         $(".title-holder .alterable").text($(this).text());

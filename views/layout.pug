@@ -29,9 +29,11 @@ html
                     |ev
                     span Y
                     |ou
-        #nav-button.dt-hover.dt-texth
+        #nav-button-left.dt-hover.dt-texth
             ion-icon(name="keypad")
-        nav
+        #nav-button-right.dt-hover.dt-texth
+            ion-icon(name="person")
+        nav#pages
             .button-container
                 .bar.dt-bg
                 ul
@@ -53,6 +55,19 @@ html
                     li.dt-hover.dt-hover-children.dt-borderh 
                         ion-icon.dt-hover.dt-texth(name="umbrella")
                         p Other
+        nav#user-nav
+            .button-container
+                .bar.dt-bg
+                ul
+                    li.dt-hover.dt-hover-children.dt-borderh
+                        ion-icon.dt-hover.dt-texth(name="contact")
+                        p Profile
+                    li.dt-hover.dt-hover-children.dt-borderh
+                        ion-icon.dt-hover.dt-texth(name="options")
+                        p Settings
+                    li.dt-hover.dt-hover-children.dt-borderh
+                        ion-icon.dt-hover.dt-texth(name="beaker")
+                        p Themes
     block content
     script(type="text/javascript" src="/javascripts/loader.js")
     script(type="text/javascript" src="/javascripts/navigation.js")

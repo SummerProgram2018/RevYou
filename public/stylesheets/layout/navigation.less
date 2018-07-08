@@ -1,6 +1,6 @@
 // RevYou NAVIGATION STYLE
 
-nav {
+nav#pages, nav#user-nav {
     position: fixed;
     width: 80px;
     height: 100vh;
@@ -56,7 +56,28 @@ nav {
     }
 }
 
-#nav-button {
+nav#user-nav {
+    right: 0;
+    .bar {
+        left: 0px;
+    }
+    .button-container {
+        ul {
+            li {
+                border-right: none;
+                border-left: 1px solid transparent;
+                p {
+                    text-align: right;
+                    width: 80px;
+                    left: -100px;
+                }
+            }
+        }
+    }
+}
+
+#nav-button-left,
+#nav-button-right {
     position: fixed;
     width: 80px;
     height: 80px;
@@ -64,11 +85,15 @@ nav {
     cursor: pointer;
     .centerXYFlex;
     ion-icon {
-        font-size: 55px;
+        font-size: 40px;
         .animate-standard(0.2s);
     }
     // &:hover ion-icon {
     //     color: @orange-c;
     // }
+}
+
+#nav-button-right {
+    right: 0;
 }
 
