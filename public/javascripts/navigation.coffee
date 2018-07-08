@@ -16,4 +16,4 @@ $(document).ready =>
     , =>
         $("nav .bar").removeClass("hidden-i")
     $("nav#pages li").click ->
-        $(".title-holder .alterable").text($(this).text());
+        $(".center-bar .alterable").text($(this).text())
