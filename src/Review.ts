@@ -1,5 +1,5 @@
 
-import { ReviewField } from "ReviewField"; 
+import { ReviewField } from "ReviewField";
 import { User } from "User";
 
 export class Review {
