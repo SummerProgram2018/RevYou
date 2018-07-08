@@ -8,7 +8,7 @@ $(document).ready =>
         else $("nav#pages").css "left", "0px"
         navLeftOpen = !navLeftOpen
     $("#nav-button-right").click =>
-        if navLeftOpen then $("nav#user-nav").css "right", "-80px"
+        if navRightOpen then $("nav#user-nav").css "right", "-80px"
         else $("nav#user-nav").css "right", "0px"
         navRightOpen = !navRightOpen    
     $("nav .button-container").hover =>
