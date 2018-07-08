@@ -15,14 +15,14 @@ export class Review {
     public getReview(): Review {
         return this;
     }
-    
+
     public retrieveDb(id: string) {
-        return; 
+        return;
     }
 
     public saveReview(path: string) {
         const content = JSON.stringify(this);
-        fs.writeFile(path, content, 'utf8', function (err: any) {
+        fs.writeFile(path, content, "utf8", (err: any) => {
             //
         });
     }

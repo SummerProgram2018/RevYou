@@ -26,7 +26,7 @@ export class ReviewField {
     }
 
     public retrieveDb(id: string) {
-        return 
+        return;
     }
 
 }
