@@ -11,6 +11,7 @@ router.get("/", (req, res, next) => {
         // books: new ProductDatabase("src/data/books.json")
     };
     let dataSet: any[] = [];
+    let filteredSet: any[] = [];
     if (!req.query.productType || req.query.productType === "anything") {
         for (let i = 0; i < 100; i++) {
             const set: number = randInt(0, Object.keys(data).length);
@@ -26,8 +27,17 @@ router.get("/", (req, res, next) => {
             dataSet = [];
         }
     }
+    if (req.query.search) {
+        for (const d of dataSet) {
+            if (d.name.toLowerCase().trim() === req.query.search.toLowerCase().trim()) {
+                filteredSet.push(d);
+            }
+        }
+    } else {
+        filteredSet = dataSet;
+    }
     res.render("query", {
-        results: dataSet,
-        resultLength: dataSet.length
+        results: filteredSet,
+        resultLength: filteredSet.length
     });
 });
