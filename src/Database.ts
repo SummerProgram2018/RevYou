@@ -17,12 +17,26 @@ export class Database implements IDatabase {
         }
     }
     protected addField(data: any) {
+    protected addField(data: any): void {
         fs.readFile(this.db, (err: any, res: any) => {
             if (err) {
                 throw err;
             }
             const newData: any[] = JSON.parse(res);
             newData.push(data);
+            fs.writeFileSync(this.db, JSON.stringify(newData));
+        });
+    }
+    protected removeField(field: any, match: string): void {
+        fs.readFile(this.db, (err: any, res: any) => {
+            if (err) {
+                throw err;
+            }
+            const newData: any[] = JSON.parse(res);
+            const index = newData.findIndex((f: any) =>
+                f[match] === field[match]
+            );
+            newData.splice(index, 1);
             fs.writeFileSync(this.db, JSON.stringify(newData));
         });
     }

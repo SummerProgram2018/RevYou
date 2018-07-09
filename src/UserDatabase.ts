@@ -17,6 +17,14 @@ export class UserDatabase extends Database implements IDatabase {
             return new RevYouStatus(false, "User already exists");
         }
     }
+    public removeUser(user: User): RevYouStatus {
+        if (this.containsUser(user)) {
+            super.removeField(user, "id");
+            return new RevYouStatus(true, "Removed user");
+        } else {
+            return new RevYouStatus(false, "Failed to remove user");
+        }
+    }
     public containsUser(user: User): boolean {
         try {
             const data = fs.readFileSync(this.db, "utf-8");
