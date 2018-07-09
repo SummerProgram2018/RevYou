@@ -7,11 +7,11 @@ block content
                 input.form-control(name="query" type="text" placeholder="Games, Shoes, Movies, Books ...")
             div.form-group
                 input.form-control(type="submit")
-        each x in array
+        each item in array
             div.a
-                img(src="", alt="")
+                //img(src="", alt="")
                 div.desc
-                    h3=x.name
-                    h4=x.desc
+                    h3=item.name
+                    p=item.desc
                     
         
