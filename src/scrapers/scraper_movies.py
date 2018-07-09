@@ -35,7 +35,7 @@ for url in movie_urls[:50]:
     description = movie.find('div', {'class': 'summary_text'}).text.strip()
     release_date = movie.find('meta', {'itemprop': 'datePublished'}).get('content')
     image_link = movie.find('div', {'class', 'poster'}).a.img.get('src')
-    score = int(10 * float(movie.find('span', {'itempro[': 'ratingValue'}).text))
+    score = int(10 * float(movie.find('span', {'itemprop': 'ratingValue'}).text))
 
     data = {'name': name,
             'desc': description,
