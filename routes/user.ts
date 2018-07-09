@@ -10,7 +10,7 @@ router.get("/:method", (req, res, next) => {
     switch (req.params.method) {
         case ("newUser"): response = userDb.addUser(new User("test", "pass"));
                           break;
-        case ("profile"): res.render("user", {});
+        case ("profile"): res.render("profile", {});
                           break;
     }
 });
