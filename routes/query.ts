@@ -1,35 +1,17 @@
-import * as express from "express"
+import * as express from "express";
+import { ProductDatabase } from "../src/ProductDatabase";
 export const router = express.Router();
 
-class data {
-    name: string;
-    desc: string;
-    rating: number;
-    public constructor(name, desc, rating) {
-        this.name = name;
-        this.desc = desc;
-        this.rating = rating;
-    }
-}
-
-let x = [
-    new data("james", "Jiejie", 5),
-    new data("chris", "Dada", 2),
-    new data("mikalea", "WuYi", 5),
-    new data("stephen", "Dab", 10),
-    new data("andrea", "Yangyang", 10)
-]
-
-router.get("/", (req, res, next) =>
-{
+router.get("/", (req, res, next) => {
     console.log(req.query);
-    let newX = [];
-    for (let i of x) {
-        console.log(i)
-        if(i.name==req.query.query)
-            newX.push(i);
-    }
+    const dataSet = new ProductDatabase("src/data/games.json");
+    // for (let i of x) {
+    //     console.log(i)
+    //     if(i.name==req.query.query)
+    //         newX.push(i);
+    // }
+    console.log("m", dataSet.getData());
     res.render("query", {
-        array: newX
+        array: dataSet.getData()
     });
 });
