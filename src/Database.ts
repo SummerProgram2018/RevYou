@@ -24,13 +24,15 @@ export class Database implements IDatabase {
             throw e;
         }
     }
-    public merge(dir: string, out: string): void {
+    public merge(dir: string, out: string, type: string): void {
         const files = fs.readdirSync(dir);
         const outStr = [];
         for (const file of files) {
             try {
-                const data: any = fs.readFileSync(dir + "/" + file);
-                outStr.push(JSON.parse(data));
+                let data: any = fs.readFileSync(dir + "/" + file);
+                data = JSON.parse(data);
+                data.type = type;
+                outStr.push(data);
             } catch (e) {
                 throw e;
             }
