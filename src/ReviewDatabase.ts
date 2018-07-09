@@ -17,6 +17,6 @@ export class ReviewDatabase extends Database implements IDatabase {
         return true;
     }
     public containsUser(user: string): boolean {
-        return super.contains("e")
+        return;
     }
 }
