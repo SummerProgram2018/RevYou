@@ -15,7 +15,7 @@ resp = requests.get('https://www.goodreads.com/genres/classics', cookies=cookies
 resp.raise_for_status()
 
 homepage = bs4.BeautifulSoup(resp.text)
-book_urls = list(map(lambda x: 'https://www.goodreads.com/{}'.format(x.a.get('href')), homepage.select('.coverWrapper')))
+book_urls = list(map(lambda x: 'https://www.goodreads.com{}'.format(x.a.get('href')), homepage.select('.coverWrapper')))
 
 re_date = re.compile(r'([a-zA-Z]* \d\d?[a-zA-Z]{2} )?(\d\d\d\d)')
 
@@ -33,10 +33,10 @@ for url in book_urls:
 
     name = ' '.join(book.title.text.split()) 
     description = book.find('div', {'id': 'descriptionContainer'}).find_all('span')[-1].text
-    release_date = re_date.findall(site.find('div', {'id': 'details', 'class': 'uitext darkGreyText'}).find_all('div', {'class': 'row'})[-1].text)[0]
+    release_date = re_date.findall(book.find('div', {'id': 'details', 'class': 'uitext darkGreyText'}).find_all('div', {'class': 'row'})[-1].text)[0]
     release_date = ''.join(release_date) if release_date[0] != '' else release_date[1]
-    image_link = site.find('img', {'id': 'coverImage'}).get('src')
-    score = int(20 * float(site.find('span', {'class': 'average'}).text))
+    image_link = book.find('img', {'id': 'coverImage'}).get('src')
+    score = int(20 * float(book.find('span', {'class': 'average'}).text))
 
     data = {'name': name,
             'desc': description,
@@ -44,5 +44,5 @@ for url in book_urls:
             'imageLink': image_link,
             'score': score}
 
-    with open(os.path.join(outdir, '{}.json'.format(i)), 'w') as fp:
+    with open(os.path.join(outdir, '{}.json'.format('-'.join(url.split('/')))), 'w') as fp:
         json.dump(data, fp)
