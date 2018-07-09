@@ -1,19 +1,21 @@
 extends layout
 block content
-    h1(align="center")="Results"
+    h2(align="center")="Results"
     main#query
         form(action="query" method="GET")
             div.form-group
                 input.form-control(name="query" type="text" placeholder="Games, Shoes, Movies, Books ...")
             div.form-group
                 input.form-control(type="submit")
-        each item in array
+        each item in results
             section
-                div.a
-                    img(src=item.imageLink)
-                    div.desc
-                        h3=item.name
-                        hr
-                        p=item.desc
-                    
+                img(src=item.imageLink)
+                .desc
+                    h3=item.name
+                    hr
+                    p=item.desc
+                .stat
+                    h6 Likes
+                    h6 Reviews
+                    h6 
         
