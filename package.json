@@ -1,5 +1,5 @@
 {
-  "name": "Reviewer",
+  "name": "RevYou",
   "version": "1.0.0",
   "private": false,
   "engines": {
@@ -16,9 +16,9 @@
   "author": "RATBIT",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aXises/dotma-site/issues"
+    "url": "https://github.com/SummerProgram2018/RevYouissues"
   },
-  "homepage": "https://github.com/aXises/dotma-site#readme",
+  "homepage": "https://github.com/SummerProgram2018/RevYou#readme",
   "dependencies": {
     "@types/node": "^10.5.1",
     "bootstrap": "^4.1.1",
