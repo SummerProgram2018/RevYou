@@ -1,18 +1,25 @@
 extends layout
 
 block content
-	header
-		//- this header will have the circle image and orange background
-		.profile-header
-			.profile-user-header
-				img.profile-image
-				//- profile image for users
-				p#username="insert username here"
-				p#sponsered="not sponsered"
-				p="this is the orange background for profile pic"
-			.profile-followers
+	main#profile
+		header
+			//- this header will have the circle image and orange background
+			.profile-header
+				.profile-user-header
+					img.profile-image
+					//- profile image for users
+					p#username="insert username here"
+					p#sponsered="not sponsered"
+			.profile-foll-rep
 				p#followers="Followers: 1M"	
-			.profile-reputation
 				p#reputation="Reputation: 1,336"
-	div.profile-details
-		p=""
+		div.profile-details
+			.profile-buttons
+				.button-left
+					button(type="button" name='Message' text="message")="Message"
+				.button-middle
+					button(type="button" name='follow' text="follow")="Follow"
+				.button-right
+					button(type="button" name='like' text="like")="Like"
+
+			p=""

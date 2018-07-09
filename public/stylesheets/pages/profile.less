@@ -1,0 +1,32 @@
+main#profile {
+	header {
+		background-color: @orange-c;
+		/*.centerXY;*/
+		height: 300px;
+		.profile-header {
+			.centerXYFlex;
+		}
+		.profile-foll-rep {
+			display: inline;
+			#followers {
+				float: left;
+			}
+			#reputation {
+				float: right;
+			}
+		}
+	}
+	.profile-details {
+		.profile-buttons {
+			display: flex;
+			justify-content: center;
+			.button-left, .button-middle, .button-right {
+				width: 33%;
+				position: relative;
+				button {
+					.centerXY;
+				}
+			}
+		}
+	}
+}
