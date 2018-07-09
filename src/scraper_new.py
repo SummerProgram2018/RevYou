@@ -4,6 +4,9 @@ import re
 import json
 import os
 
+if not os.path.exists('output'):
+    os.makedirs('output')
+
 resp = requests.get('https://steamcommunity.com/id/Burnsy88/games/?tab=all')
 resp.raise_for_status()
 
@@ -14,8 +17,9 @@ re_rating = re.compile(r'\d\d\%')
 app_ids = re_appid.findall(homepage.text)
 
 for i in app_ids:
+
     url = 'https://store.steampowered.com/app/{}'.format(i)
-    if os.path.exists('output/{}.json'.format(i)):
+    if os.path.exists(os.path.join('output', '{}.json'.format(i))):
         print('already scraped {}. Continuing'.format(i))
         continue
 
@@ -41,7 +45,7 @@ for i in app_ids:
 
     release_date = gamepage.select('.date')[0].get_text()
 
-    image_link = gamepage.select('.game_header_image_full')[0].get('src')
+    image_link = gamepage.select('.game_header_image_full')
     image_link = image_link[0].get('src') if len(image_link) != 0 else 'https://i.imgur.com/TybTuTL.gif'
 
     score = int(scorelist[0][:-1])
@@ -53,5 +57,5 @@ for i in app_ids:
             'imageLink': image_link,
             'score': score}
 
-    with open('output/{}.json'.format(i), 'w') as fp:
+    with open(os.path.join('output', '{}.json'.format(i)), 'w') as fp:
         json.dump(data, fp)
