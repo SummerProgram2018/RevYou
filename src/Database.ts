@@ -27,21 +27,19 @@ export class Database implements IDatabase {
     public merge(dir: string, out: string): void {
         const files = fs.readdirSync(dir);
         const outStr = [];
-        console.log(files);
         for (const file of files) {
-            console.log(file);
-            fs.readFile(dir + "/" + file, (err1: any, data: any) => {
-                if (err1) {
-                    throw err1;
-                }
+            try {
+                const data: any = fs.readFileSync(dir + "/" + file);
                 outStr.push(JSON.parse(data));
-                fs.writeFile(out, JSON.stringify(outStr), (err2: any) => {
-                    if (err2) {
-                        throw err2;
-                    }
-                });
-            });
+            } catch (e) {
+                throw e;
+            }
         }
+        fs.writeFile(out, JSON.stringify(outStr), (err2: any) => {
+            if (err2) {
+                throw err2;
+            }
+        });
     }
     protected addField(data: any): void {
         fs.readFile(this.db, (err: any, res: any) => {
