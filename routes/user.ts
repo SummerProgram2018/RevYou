@@ -3,7 +3,6 @@ import { User } from "../src/User";
 import * as express from "express";
 export const router = express.Router();
 
-
 router.get("/:method", (req, res, next) => {
     const userDb = new UserDatabase("src/data/user.json");
     let response;

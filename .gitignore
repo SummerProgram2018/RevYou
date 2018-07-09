@@ -72,4 +72,6 @@ bin/*.js
 
 /*.js
 
-src/data/games
+src/scrapers/games
+src/scrapers/movies
+src/scrapers/books
