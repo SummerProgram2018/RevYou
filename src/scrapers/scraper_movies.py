@@ -31,7 +31,7 @@ for url in movie_urls[:50]:
 
     movie = bs4.BeautifulSoup(resp.text)
 
-    name = ' '.join(movie.find('h1', {'itemprop': 'name', 'class': ''}).text.split('\xa0')
+    name = ' '.join(movie.find('h1', {'itemprop': 'name', 'class': ''}).text.split('\xa0'))
     description = movie.find('div', {'class': 'summary_text'}).text.strip()
     release_date = movie.find('meta', {'itemprop': 'datePublished'}).get('content')
     image_link = movie.find('div', {'class', 'poster'}).a.img.get('src')
