@@ -16,7 +16,33 @@ export class Database implements IDatabase {
             this.db = db;
         }
     }
-    protected addField(data: any) {
+    public getData(): any[] {
+        try {
+            const dataSet: any = fs.readFileSync(this.db);
+            return JSON.parse(dataSet);
+        } catch (e) {
+            throw e;
+        }
+    }
+    public merge(dir: string, out: string): void {
+        const files = fs.readdirSync(dir);
+        const outStr = [];
+        console.log(files);
+        for (const file of files) {
+            console.log(file);
+            fs.readFile(dir + "/" + file, (err1: any, data: any) => {
+                if (err1) {
+                    throw err1;
+                }
+                outStr.push(JSON.parse(data));
+                fs.writeFile(out, JSON.stringify(outStr), (err2: any) => {
+                    if (err2) {
+                        throw err2;
+                    }
+                });
+            });
+        }
+    }
     protected addField(data: any): void {
         fs.readFile(this.db, (err: any, res: any) => {
             if (err) {
