@@ -17,3 +17,4 @@ $(document).ready =>
         $("nav .bar").removeClass("hidden-i")
     $("nav#pages li").click ->
         $(".center-bar .alterable").text($(this).text())
+        $(".product-type").attr("value", $(this).text().toLowerCase().trim())
