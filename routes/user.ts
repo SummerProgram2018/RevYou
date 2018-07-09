@@ -1,7 +1,14 @@
 import * as express from "express"
 export const router = express.Router();
 
-router.get("/", (req, res, next) => {
-    res.render("user", {
-    });
+
+router.get("/:method", (req, res, next) => {
+    const userDb = new UserDatabase("src/data/user.json");
+    let response;
+    switch (req.params.method) {
+        case ("newUser"): response = userDb.addUser(new User("test", "pass"));
+                          break;
+        case ("profile"): res.render("user", {});
+                          break;
+    }
 });
