@@ -1,4 +1,6 @@
-import * as express from "express"
+import { UserDatabase } from "../src/UserDatabase";
+import { User } from "../src/User";
+import * as express from "express";
 export const router = express.Router();
 
 
