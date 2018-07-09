@@ -7,7 +7,9 @@ import os
 if not os.path.exists('output'):
     os.makedirs('output')
 
-resp = requests.get('https://steamcommunity.com/id/Burnsy88/games/?tab=all')
+cookies = {'birthtime': '568022401'}
+
+resp = requests.get('https://steamcommunity.com/id/Burnsy88/games/?tab=all', cookies=cookies)
 resp.raise_for_status()
 
 homepage = bs4.BeautifulSoup(resp.text)
@@ -24,7 +26,7 @@ for i in app_ids:
         continue
 
     print('reading {}'.format(url))
-    resp = requests.get(url)
+    resp = requests.get(url, cookies=cookies)
     resp.raise_for_status()
 
     gamepage = bs4.BeautifulSoup(resp.text)
@@ -38,12 +40,16 @@ for i in app_ids:
         continue
 
     
+    release_date = gamepage.select('.date')
+    if len(release_date) != 0:
+        release_date = release_date[0].get_text()
+    else:
+        continue
+
     name = gamepage.select('.apphub_AppName')[0].get_text()
 
     description = gamepage.select('.game_description_snippet')
     description = description[0].get_text() if len(description) != 0 else ''
-
-    release_date = gamepage.select('.date')[0].get_text()
 
     image_link = gamepage.select('.game_header_image_full')
     image_link = image_link[0].get('src') if len(image_link) != 0 else 'https://i.imgur.com/TybTuTL.gif'
