@@ -43,5 +43,5 @@ for url in movie_urls[:50]:
             'imageLink': image_link,
             'score': score}
 
-    with open(os.path.join(outdir, '{}.json'.format('-'.join(url.split('/')))), 'w') as fp:
+    with open(os.path.join(outdir, '{}.json'.format('-'.join(name.split(' '))), 'w') as fp:
         json.dump(data, fp)
