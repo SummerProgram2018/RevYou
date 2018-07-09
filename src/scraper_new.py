@@ -4,8 +4,8 @@ import re
 import json
 import os
 
-if not os.path.exists('output'):
-    os.makedirs('output')
+if not os.path.exists('games'):
+    os.makedirs('games')
 
 cookies = {'birthtime': '568022401'}
 
