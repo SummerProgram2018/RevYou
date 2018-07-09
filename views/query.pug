@@ -1,6 +1,6 @@
 extends layout
 block content
-    h1(align="center")="this is the query page"
+    h1(align="center")="Results"
     main#query
         form(action="query" method="GET")
             div.form-group
@@ -8,10 +8,12 @@ block content
             div.form-group
                 input.form-control(type="submit")
         each item in array
-            div.a
-                //img(src="", alt="")
-                div.desc
-                    h3=item.name
-                    p=item.desc
+            section
+                div.a
+                    img(src=item.imageLink)
+                    div.desc
+                        h3=item.name
+                        hr
+                        p=item.desc
                     
         
