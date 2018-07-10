@@ -33,6 +33,7 @@ router.get("/", (req, res, next) => {
         }
     } else if (req.query.search) {
         const thonk = new fuse(filteredSet, fuseOptions);
+        dataSet = thonk.search(req.query.search);
     } else {
         dataSet = data[req.query.productType].getData();
         if (!dataSet) {
