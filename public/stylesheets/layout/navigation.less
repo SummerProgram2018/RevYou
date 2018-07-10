@@ -88,12 +88,52 @@ nav#user-nav {
         font-size: 40px;
         .animate-standard(0.2s);
     }
-    // &:hover ion-icon {
-    //     color: @orange-c;
-    // }
 }
 
 #nav-button-right {
     right: 0;
 }
+
+#form{
+    position: fixed;
+    .centerXY;
+    z-index: 6;
+    width: 800px;
+    height: 600px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    section {
+        height: 100%;
+        .centerXYFlex;
+        h4 {
+            color: rgb(0, 0, 0);
+        }
+        .info{
+            width: 500px;
+            height: 50px;
+        }
+        .button{
+            width: 150px;
+            background-color: rgba(197, 248, 231,0.5);
+            font-size: 1.5em;
+            font-family: Oswald;
+            border-radius: 5px;
+        }
+        ion-icon {
+            color: white;
+        }
+    }   
+    
+    ion-icon {
+        font-size: 40px;
+    }
+}
+.show {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 7;
+}
+
 

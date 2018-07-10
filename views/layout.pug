@@ -68,8 +68,32 @@ html
                     li.dt-hover.dt-hover-children.dt-borderh
                         ion-icon.dt-hover.dt-texth(name="beaker")
                         p Themes
+        div#form
+         ion-icon.close(name="close")
+         section
+            form(action="dynamic", method="get")
+                h4="Username"
+                input.info(type="text", name="username", placeholder="JamesBurns69")
+                br
+                br
+                br
+                h4="Password"
+                input.info(type="password", name="password", placeholder="********")
+                br
+                br
+                br
+                br
+                span(style="padding-right:25px;")
+                input.button(type="button", value="Register")
+                span(style="padding-right:150px;")
+                input.button(type="button", value="Login")
+       
+        input.show(type="button", value="show")
+                
+
     block content
     script(type="text/javascript" src="/javascripts/loader.js")
     script(type="text/javascript" src="/javascripts/navigation.js")
     script(type="text/javascript" src="/javascripts/theme.js")
     script(type="text/javascript" src="/node_modules/ionicons/dist/ionicons.js")
+    
