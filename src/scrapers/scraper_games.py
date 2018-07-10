@@ -4,8 +4,10 @@ import re
 import json
 import os
 
-if not os.path.exists('games'):
-    os.makedirs('games')
+outdir = 'games'
+
+if not os.path.exists(outdir):
+    os.makedirs(outdir)
 
 cookies = {'birthtime': '568022401'}
 
@@ -63,5 +65,5 @@ for i in app_ids:
             'imageLink': image_link,
             'score': score}
 
-    with open(os.path.join('output', '{}.json'.format(i)), 'w') as fp:
+    with open(os.path.join(outdir, '{}.json'.format(i)), 'w') as fp:
         json.dump(data, fp)
