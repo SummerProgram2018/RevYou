@@ -20,15 +20,10 @@ $(document).ready =>
     showPageOpen = false;
     $("#user-nav .profile").click =>
         if !showPageOpen
-            $("section.form-container .dynamic-form").remove()
-            $("section.form-container").addClass("form-visible")
-            form = $("#form-types .login-form").children().clone()
-            form.addClass("dynamic-form")
-            $("section.form-container #form").prepend form
+            $(".form-container, .form-container .dynamic-form.login-form").addClass("form-visible")
         else
-            $("section.form-container").removeClass("form-visible")
-
+            $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
         showPageOpen = !showPageOpen
-    $("#form .close").click =>
-        $("section.form-container").removeClass("form-visible")
+    $(".form-container .close, .form-container .clickable-bg").click =>
+        $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
         showPageOpen = false;

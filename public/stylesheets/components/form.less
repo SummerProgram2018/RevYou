@@ -22,11 +22,20 @@ section.form-container {
     hr {
         background-color: white;
     }
-    #form {
+    .clickable-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: inherit;
+        height: inherit;
+    }
+    .dynamic-form {
         width: 600px;
         background-color: @orange-c;
         padding: 50px;
         border-radius: 7px;
+        opacity: 0;
+        pointer-events: none;
         .centerXY;
         section {
             h4 {
