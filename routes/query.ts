@@ -3,7 +3,7 @@ import { ProductDatabase } from "../src/ProductDatabase";
 import { randInt } from "../src/Utils";
 import { Product } from "../src/Product";
 export const router = express.Router();
-import * as fuse from "fuse"
+import * as fuse from "fuse.js";
 
 router.get("/", (req, res, next) => {
     const data: object = {
@@ -13,6 +13,15 @@ router.get("/", (req, res, next) => {
     };
     let dataSet: any[] = [];
     let filteredSet: any[] = [];
+    const fuseOptions = {
+        keys: [{
+            name: "name",
+            weight: 0.75
+        }, {
+            name: "desc",
+            weight: 0.25
+        }]
+    };
     if (!req.query.productType || req.query.productType === "anything") {
         for (let i = 0; i < 100; i++) {
             const set: number = randInt(0, Object.keys(data).length);
@@ -22,33 +31,15 @@ router.get("/", (req, res, next) => {
                 dataSet.push(selection);
             }
         }
+    } else if (req.query.search) {
+        const thonk = new fuse(filteredSet, fuseOptions);
     } else {
         dataSet = data[req.query.productType].getData();
         if (!dataSet) {
             dataSet = [];
         }
     }
-    if (req.query.search) {
-        for (const d of dataSet) {
-            if (d.name.toLowerCase().trim() === req.query.search.toLowerCase().trim()) {
-                filteredSet.push(d);
-            }
-        }
-    } else {
-        filteredSet = dataSet;
-    }
-    let fuseOptions = {
-        keys: [{
-            name: 'name',
-            weight: 0.75
-        }, {
-            name: 'desc',
-            weight: 0.25
-        }]
-    };
-    let fuse = new Fuse(filteredSet, fuseOptions);
-    let filteredSet = fuse.search(req.query.search);
-
+    filteredSet = dataSet;
     res.render("query", {
         results: filteredSet,
         resultLength: filteredSet.length
