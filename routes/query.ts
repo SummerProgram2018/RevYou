@@ -3,6 +3,7 @@ import { ProductDatabase } from "../src/ProductDatabase";
 import { randInt } from "../src/Utils";
 import { Product } from "../src/Product";
 export const router = express.Router();
+import * as fuse from "fuse"
 
 router.get("/", (req, res, next) => {
     const data: object = {
@@ -36,6 +37,18 @@ router.get("/", (req, res, next) => {
     } else {
         filteredSet = dataSet;
     }
+    let fuseOptions = {
+        keys: [{
+            name: 'name',
+            weight: 0.75
+        }, {
+            name: 'desc',
+            weight: 0.25
+        }]
+    };
+    let fuse = new Fuse(filteredSet, fuseOptions);
+    let filteredSet = fuse.search(req.query.search);
+
     res.render("query", {
         results: filteredSet,
         resultLength: filteredSet.length
