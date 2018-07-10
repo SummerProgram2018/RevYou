@@ -19,13 +19,10 @@ $(document).ready =>
         $("nav .bar").removeClass("hidden-i")
     $("nav#pages li").click ->
         $(".center-bar .alterable").text($(this).text())
-<<<<<<< HEAD
     $(".show").click =>
         if !showPageOpen then $("#form").show()
         else $("#form").hide()
         showPageOpen = !showPageOpen
     $("#form .close").click =>
         $("#form").hide()
-=======
         $(".product-type").attr("value", $(this).text().toLowerCase().trim())
->>>>>>> c298bd54d3541464498830b56d397eec6f634e2a
