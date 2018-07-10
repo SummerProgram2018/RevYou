@@ -37,12 +37,25 @@ section.form-container {
                 background-color: @background-standard;
                 padding: 5px;
                 border-style: none;
+                .animate-standard(0.1s);
+                &:focus {
+                    outline: none;
+                }
+                &:hover {
+                    opacity: 0.9;
+                }
             }
             section {
                 margin-top: 10px;
             }
             section.buttons {
                 margin-top: 20px;
+                .button {
+                    cursor: pointer;
+                }
+            }
+            section.error {
+                height: 20px;
             }
         }
     }  

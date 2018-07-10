@@ -19,8 +19,15 @@ $(document).ready =>
         $(".center-bar .alterable").text($(this).text())
     showPageOpen = false;
     $("#user-nav .profile").click =>
-        if !showPageOpen then $("section.form-container").addClass("form-visible")
-        else $("section.form-container").removeClass("form-visible")
+        if !showPageOpen
+            $("section.form-container .dynamic-form").remove()
+            $("section.form-container").addClass("form-visible")
+            form = $("#form-types .login-form").children().clone()
+            form.addClass("dynamic-form")
+            $("section.form-container #form").prepend form
+        else
+            $("section.form-container").removeClass("form-visible")
+
         showPageOpen = !showPageOpen
     $("#form .close").click =>
         $("section.form-container").removeClass("form-visible")

@@ -71,23 +71,43 @@ html
         section.form-container
             #form
                 ion-icon.close(name="close")
-                section
-                    h2="Welcome Back!"
-                    hr
-                    form(action="user", method="get")
-                        section
-                            h4="Username"
-                            input.info(type="text", name="username", placeholder="JamesBurns69")
-                        section
-                            h4="Password"
-                            input.info(type="password", name="password", placeholder="********")
-                        section.buttons
-                            input.button(type="button", value="Login")
-                            input.button(type="button", value="Register")
-
+    #form-types
+        .login-form
+            section
+                h2="Welcome Back!"
+                hr
+                form(action="user", method="get")
+                    section
+                        h4="Username"
+                        input.info.username(type="text", name="username", placeholder="JamesBurns69")
+                    section
+                        h4="Password"
+                        input.info.password(type="password", name="password", placeholder="********")
+                    section.error
+                        p="banananana egg"
+                    section.buttons
+                        input.button.submit(type="submit", value="Login")
+                        input.button(type="button", value="Register")
+        .register-form
+            section
+                h2="Register"
+                hr
+                form(action="user", method="get")
+                    section
+                        h4="Username"
+                        input.info.username(type="text", name="username", placeholder="JamesBurns69")
+                    section
+                        h4="Password"
+                        input.info.password(type="password", name="password", placeholder="********")
+                    section.error
+                        p="banananana egg"
+                    section.buttons
+                        input.button.submit(type="submit", value="Login")
+                        input.button(type="button", value="Register")
     block content
     script(type="text/javascript" src="/javascripts/loader.js")
     script(type="text/javascript" src="/javascripts/navigation.js")
     script(type="text/javascript" src="/javascripts/theme.js")
+    script(type="text/javascript" src="/javascripts/form.js")
     script(type="text/javascript" src="/node_modules/ionicons/dist/ionicons.js")
     
