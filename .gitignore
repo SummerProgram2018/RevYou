@@ -71,3 +71,7 @@ src/*.js
 bin/*.js
 
 /*.js
+
+src/scrapers/games
+src/scrapers/movies
+src/scrapers/books

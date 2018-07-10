@@ -1,18 +1,22 @@
 main#query {
-    .a {
-        display: inline;
-        width: 350px;
-        .centerXYFlex;
-        padding-bottom: 10px;
-    }
-    img{
-        width: 200px;
-        height:200px;
+    img {
+        width: 400px;
         float: left;
-        background-color: red;
+        background-color: @orange-c;
     }
-    .desc{
-        float: right;
+    .desc {
+        width: 900px;
+        height: inherit;
         padding-left: 10px;
+        float: left;
+
+        hr {
+            margin: 5px 0 5px 0;
+        }
+    }
+    .stat {
+        height: inherit;
+        float: left;
+        padding: 10px;
     }
 }

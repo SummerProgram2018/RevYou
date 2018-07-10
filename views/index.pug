@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    header
+    header#index
         .background-holder
         .center-bar
             .theme-selec
@@ -15,11 +15,12 @@ block content
                 p="Find Reviews On: "
                     span.alterable.dt-text="Anything"
                 br
-                form(action="query" method="GET")
+                form.search-form(action="query" method="GET")
+                    input.product-type.no-display(name="productType", value="")
                     div.form-group
-                        input.form-control(name="query" type="text" placeholder="Games, Shoes, Movies, Books ...")
+                        input.form-control(name="search" type="text" placeholder="Games, Shoes, Movies, Books ...")
                     div.form-group
-                        input.form-control(type="submit")
+                        input.form-control.submit(type="submit")
     main#index
         p
             span Coming

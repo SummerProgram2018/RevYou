@@ -1,0 +1,62 @@
+main#profile {
+	header {
+		background-color: @orange-c;
+		/*.centerXY;*/
+		height: 300px;
+		position: relative;
+		color: white;
+		.profile-header {
+			/*.centerXYFlex;*/
+		}
+		.user-details {
+			float: right;
+			padding-right: 50%;
+		}
+		.profile-foll-rep {
+			display: inline;
+			position: absolute;
+			bottom: 0%;
+			width: 100%;
+			#followers {
+				float: left;
+				padding-left: 15px;
+			}
+			#reputation {
+				float: right;
+				padding-right: 15px;
+			}
+		}
+	}
+	.profile-details {
+		.profile-buttons {
+			display: flex;
+			justify-content: center;
+			height: 5vh;
+			.button-left, .button-middle, .button-right {
+				width: 33%;
+				position: relative;
+				button {
+					.centerXY;
+					background-color: transparent;
+				    border: none;
+				    color: black;
+				    /*padding: 15px 32px;*/
+				    text-align: center;
+				    text-decoration: none;
+				    display: inline-block;
+				    font-size: 20px;
+				    font-weight: 50;
+				    /*margin: 4px 2px;*/
+				    cursor: pointer;
+				    transition-duration: 0.4s;
+				}
+				button:hover {
+					color: @orange-c
+				}
+			}
+		}
+		.profile-recent-comments {
+
+		}
+	}
+}

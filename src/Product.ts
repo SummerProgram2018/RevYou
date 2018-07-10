@@ -4,9 +4,11 @@ export class Product {
     public name: string;
     public description: string;
     public reviews: Review[];
-    public constructor(name: string, description: string) {
+    public type: string;
+    public constructor(name: string, description: string, type: string) {
         this.name = name;
         this.description = description;
+        this.type = type;
         this.reviews = [];
     }
     public addReview(review: Review): boolean {

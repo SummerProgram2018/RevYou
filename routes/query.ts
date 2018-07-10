@@ -1,35 +1,48 @@
-import * as express from "express"
+import * as express from "express";
+import { ProductDatabase } from "../src/ProductDatabase";
+import { randInt } from "../src/Utils";
+import { Product } from "../src/Product";
 export const router = express.Router();
+import * as fuse from "fuse.js";
 
-class data {
-    name: string;
-    desc: string;
-    rating: number;
-    public constructor(name, desc, rating) {
-        this.name = name;
-        this.desc = desc;
-        this.rating = rating;
+router.get("/", (req, res, next) => {
+    const data: object = {
+        games: new ProductDatabase("src/data/games.json"),
+        movies: new ProductDatabase("src/data/movies.json")
+        // books: new ProductDatabase("src/data/books.json")
+    };
+    let dataSet: any[] = [];
+    let filteredSet: any[] = [];
+    const fuseOptions = {
+        keys: [{
+            name: "name",
+            weight: 0.75
+        }, {
+            name: "desc",
+            weight: 0.25
+        }]
+    };
+    if (!req.query.productType || req.query.productType === "anything") {
+        for (let i = 0; i < 100; i++) {
+            const set: number = randInt(0, Object.keys(data).length);
+            const products: Product[] = data[Object.keys(data)[set]].getData();
+            const selection: Product = products[randInt(0, products.length)];
+            if (dataSet.findIndex((e: Product) => e.name === selection.name) === -1) {
+                dataSet.push(selection);
+            }
+        }
+    } else if (req.query.search) {
+        const thonk = new fuse(filteredSet, fuseOptions);
+        dataSet = thonk.search(req.query.search);
+    } else {
+        dataSet = data[req.query.productType].getData();
+        if (!dataSet) {
+            dataSet = [];
+        }
     }
-}
-
-let x = [
-    new data("james", "Jiejie", 5),
-    new data("chris", "Dada", 2),
-    new data("mikalea", "WuYi", 5),
-    new data("stephen", "Dab", 10),
-    new data("andrea", "Yangyang", 10)
-]
-
-router.get("/", (req, res, next) =>
-{
-    console.log(req.query);
-    let newX = [];
-    for (let i of x) {
-        console.log(i)
-        if(i.name==req.query.query)
-            newX.push(i);
-    }
+    filteredSet = dataSet;
     res.render("query", {
-        array: newX
+        results: filteredSet,
+        resultLength: filteredSet.length
     });
 });
