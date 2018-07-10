@@ -1,22 +1,38 @@
 main#query {
-    img {
-        width: 400px;
-        float: left;
-        background-color: @orange-c;
-    }
-    .desc {
-        width: 900px;
-        height: inherit;
-        padding-left: 10px;
-        float: left;
-
-        hr {
-            margin: 5px 0 5px 0;
+    section {
+        position: relative;
+        margin-top: 20px;
+        .image-container {
+            width: 400px;
+            height: 200px;
+            .centerXYFlex;
+            img {
+                max-width: 400px;
+                max-height: 200px;
+                background-color: @orange-c;
+            }
         }
-    }
-    .stat {
-        height: inherit;
-        float: left;
-        padding: 10px;
+        .desc,
+        .stat {
+            position: absolute;
+            top: 0;
+            left: 410px;
+            width: 900px;
+            height: 200px;
+            padding-left: 10px;
+            border-left: 1px solid lightgrey;
+            hr {
+                margin: 5px 0 5px 0;
+            }
+        }
+        .desc {
+            overflow: auto;
+        }
+        .stat {
+            left: 1320px;
+            h6 {
+                text-transform: capitalize;
+            }
+        }
     }
 }
