@@ -59,7 +59,7 @@ html
             .button-container
                 .bar.dt-bg
                 ul
-                    li.dt-hover.dt-hover-children.dt-borderh
+                    li.dt-hover.dt-hover-children.dt-borderh.profile
                         ion-icon.dt-hover.dt-texth(name="contact")
                         p Profile
                     li.dt-hover.dt-hover-children.dt-borderh
@@ -68,28 +68,22 @@ html
                     li.dt-hover.dt-hover-children.dt-borderh
                         ion-icon.dt-hover.dt-texth(name="beaker")
                         p Themes
-        div#form
-         ion-icon.close(name="close")
-         section
-            form(action="dynamic", method="get")
-                h4="Username"
-                input.info(type="text", name="username", placeholder="JamesBurns69")
-                br
-                br
-                br
-                h4="Password"
-                input.info(type="password", name="password", placeholder="********")
-                br
-                br
-                br
-                br
-                span(style="padding-right:25px;")
-                input.button(type="button", value="Register")
-                span(style="padding-right:150px;")
-                input.button(type="button", value="Login")
-       
-        input.show(type="button", value="show")
-                
+        section.form-container
+            #form
+                ion-icon.close(name="close")
+                section
+                    h2="Welcome Back!"
+                    hr
+                    form(action="user", method="get")
+                        section
+                            h4="Username"
+                            input.info(type="text", name="username", placeholder="JamesBurns69")
+                        section
+                            h4="Password"
+                            input.info(type="password", name="password", placeholder="********")
+                        section.buttons
+                            input.button(type="button", value="Login")
+                            input.button(type="button", value="Register")
 
     block content
     script(type="text/javascript" src="/javascripts/loader.js")
