@@ -21,6 +21,7 @@ export class User implements IUser {
         if (!settings) {
             this.settings = {
                 themes: {
+                    contrast: "#ee6c30",
                     light: true
                 },
                 searchPref: {

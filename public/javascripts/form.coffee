@@ -12,8 +12,8 @@ $(document).ready =>
         if not username then return $(".form-container .register-form .error").text("Username cannot be empty.")
         if not password then return $(".form-container .register-form .error").text("Password cannot be empty.")
         if not cPassword then return $(".form-container .register-form .error").text("Password cannot be empty.")
-        if username.length <= 5 then return $(".form-container .register-form .error").text("Username must be at least 5 letters.")
-        if password.length <= 5 then return $(".form-container .register-form .error").text("Password be at least 5 letters.")
+        if username.length < 5 then return $(".form-container .register-form .error").text("Username must be at least 5 letters.")
+        if password.length < 5 then return $(".form-container .register-form .error").text("Password be at least 5 letters.")
         if password != cPassword then return $(".form-container .register-form .error").text("Password must match.")
         $(".form-container .register-form .error").text(" ")
         submitData("user/newUser", {
