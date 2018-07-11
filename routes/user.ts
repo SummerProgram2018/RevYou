@@ -25,7 +25,7 @@ router.post("/:method", (req, res, next) => {
     };
     const getSettings = () => {
         const data: User[] = userDb.getData();
-        const index = data.findIndex((e: User) => e.id === req.body.username);
+        const index = data.findIndex((e: User) => e.id === req.cookies.id);
         if (index === -1) {
             res.send(JSON.stringify(new RevYouStatus(false, "Not found.")));
             return;

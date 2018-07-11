@@ -1,6 +1,19 @@
+submitData = (route, data) =>
+    $.ajax
+        url: route
+        type: 'POST'
+        data: data
+
 $(document).ready =>
-    rgb = null # todo: Read from file.
-    if (!rgb) then rgb = "#ee6c30"
+    rgb = null
+    submitData("user/getSettings", {}).then (res) =>
+        if JSON.parse(res).themes
+            rgb = JSON.parse(res).themes.contrast
+            if not rgb then rgb = "#ee6c30"
+            $(".dt-text").css("color", rgb)
+            $(".dt-bg").css("background-color", rgb)
+            $(".dt-border").css("border-color", rgb)
+
     $(".theme-selec li").click ->
         rgb = $(this).css("background-color")
         $(".dt-text").css("color", rgb)
