@@ -8,5 +8,7 @@ $(document).ready =>
     #                 $("#loader").addClass "hidden"
     #             , 100
     # else
-    $("body").css "overflow-y", "auto"
-    $("#loader").addClass "hidden"
+    setTimeout =>
+        $("body").css "overflow-y", "auto"
+        $("#loader").addClass "hidden"
+    , 1000

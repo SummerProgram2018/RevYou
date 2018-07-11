@@ -3,8 +3,6 @@ submitData = (route, data) =>
         url: route
         type: 'POST'
         data: data
-
-
 $(document).ready =>
     submitData("user/getSessionId", {}).then (res) =>
         if res
@@ -27,7 +25,7 @@ $(document).ready =>
         $("nav .bar").removeClass("hidden-i")
     $("nav#pages li").click ->
         $(".center-bar .alterable").text($(this).text())
-        $("form.search-form .product-type").val($(this).text().toLowerCase())
+        $("form.search-form .product-type").val($(this).text().trim().toLowerCase())
     showPageOpen = false;
     $("#user-nav .login").click =>
         submitData("user/getSessionId", {}).then (res1) =>
