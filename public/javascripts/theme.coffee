@@ -6,7 +6,7 @@ submitData = (route, data) =>
 
 $(document).ready =>
     rgb = null
-    submitData("user/getSettings", {}).then (res) =>
+    submitData("/user/getSettings", {}).then (res) =>
         if JSON.parse(res).themes
             rgb = JSON.parse(res).themes.contrast
             if not rgb then rgb = "#ee6c30"

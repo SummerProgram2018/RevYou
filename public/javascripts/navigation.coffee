@@ -4,7 +4,7 @@ submitData = (route, data) =>
         type: 'POST'
         data: data
 $(document).ready =>
-    submitData("user/getSessionId", {}).then (res) =>
+    submitData("/user/getSessionId", {}).then (res) =>
         if res
             $("nav li.login p").text("Sign Out")
     $("nav#pages").css "left", "-80px"
