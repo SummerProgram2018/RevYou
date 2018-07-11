@@ -4,7 +4,6 @@ import sha512 from "sha512";
 export class User implements IUser {
     public id: string;
     public password: string;
-    private salt: string;
     public settings?: {
         themes: {
             contrast: string,
@@ -14,10 +13,11 @@ export class User implements IUser {
             type: string;
         }
     };
+    private salt: string;
     public constructor(id: string, password: string, settings?: any) {
         this.id = id;
         this.password = password;
-        this.salt = crypto.randomBytes(32).toString('hex');
+        this.salt = crypto.randomBytes(32).toString("hex");
         if (!settings) {
             this.settings = {
                 themes: {
@@ -35,15 +35,15 @@ export class User implements IUser {
     public setUser(id: string): void {
         this.id = id;
     }
-    private hashPassword(pass: string, key: string): string {
-        const saltedPass = this.salt + pass;
-        const hasher = sha512.hmac(key);
-        return hasher.finalise(saltedPass);
-    }
     public setPassword(pass: string, key: string): void {
         this.password = this.hashPassword(pass, key);
     }
     public checkPassword(pass: string, key: string): boolean {
         return this.password === this.hashPassword(pass, key);
+    }
+    private hashPassword(pass: string, key: string): string {
+        const saltedPass = this.salt + pass;
+        const hasher = sha512.hmac(key);
+        return hasher.finalise(saltedPass);
     }
 }
