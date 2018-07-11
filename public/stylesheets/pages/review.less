@@ -5,19 +5,20 @@ main#review {
             position: relative;
         }
         .image-container {
-            width: 400px;
-            height: 200px;
+            width: 600px;
+            height: 400px;
             .centerXYFlex;
             img {
-                max-width: 400px;
-                max-height: 200px;
+                max-width: 600px;
+                max-height: 400px;
+                height: 100%;
                 background-color: @orange-c;
             }
         }
         .description {
             position: absolute;
             top: 0;
-            left: 400px;
+            left: 620px;
             .stars {
                 height: 10px;
                 margin-bottom: 5px;
@@ -35,6 +36,12 @@ main#review {
             h5 {
                 text-transform: capitalize;
             }
+        }
+    }
+    section.reviews {
+        padding: 100px 200px 0 200px;
+        .review {
+
         }
     }
 }
