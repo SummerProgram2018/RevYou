@@ -42,7 +42,8 @@ section.form-container {
             h4 {
                 color: white;
             }
-            input {
+            input,
+            .button {
                 width: 100%;
                 background-color: @background-standard;
                 padding: 5px;
@@ -63,10 +64,15 @@ section.form-container {
                 .button {
                     margin-top: 5px;
                     cursor: pointer;
+                    text-align: center;
                 }
             }
             section.error {
-                height: 20px;
+                height: 18px;
+                color: white;
+                p {
+                    height: inherit;
+                }
             }
         }
     }  

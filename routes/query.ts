@@ -6,7 +6,7 @@ export const router = express.Router();
 import * as fuse from "fuse.js";
 
 router.get("/", (req, res, next) => {
-    console.log(req.query);
+    req.query.type = req.query.productType.toLowerCase();
     const data: any = {
         games: new ProductDatabase("src/data/games.json"),
         movies: new ProductDatabase("src/data/movies.json"),

@@ -86,10 +86,10 @@ html
                             h4="Password"
                             input.info.password(type="password", name="password", placeholder="********")
                         section.error
-                            p="Error"
+                            p=""
                         section.buttons
-                            input.button.submit(type="submit", value="Login")
-                            input.button.register(type="button", value="New User? Register Here!")
+                            .button.submit Login
+                            .button.register New User? Register Here!
             .dynamic-form.register-form
                 ion-icon.close(name="close")
                 section
@@ -103,13 +103,13 @@ html
                             h4="Password"
                             input.info.password(type="password", name="password", placeholder="********")
                         section
-                            h4="Password"
-                            input.info.password(type="password", name="password", placeholder="********")
+                            h4="Confirm Password"
+                            input.info.cpassword(type="password", name="cpassword", placeholder="********")
                         section.error
-                            p="Error"
+                            p=""
                         section.buttons
-                            input.button.submit(type="submit", value="Register")
-                            input.button.login(type="button", value="Existing User? Login Here!")
+                            .button.submit Register
+                            .button.login Existing User? Login Here!
 
     block content
     script(type="text/javascript" src="/javascripts/loader.js")

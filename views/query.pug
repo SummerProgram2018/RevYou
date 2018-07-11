@@ -2,7 +2,7 @@ extends layout
 block content
     h2(align="center")="Results"
     main#query
-        form(action="query" method="GET")
+        form.search-form(action="query" method="GET")
             input.product-type.no-display(name="productType", value=productType)
             div.form-group
                 input.form-control(name="search" type="text" placeholder="Games, Shoes, Movies, Books ...")

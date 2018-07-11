@@ -17,6 +17,7 @@ $(document).ready =>
         $("nav .bar").removeClass("hidden-i")
     $("nav#pages li").click ->
         $(".center-bar .alterable").text($(this).text())
+        $("form.search-form .product-type").val($(this).text().toLowerCase())
     showPageOpen = false;
     $("#user-nav .profile").click =>
         if !showPageOpen
