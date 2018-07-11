@@ -17,7 +17,7 @@ export class User implements IUser {
     public constructor(id: string, password: string, settings?: any) {
         this.id = id;
         this.password = password;
-        this.salt = crypto.randomBytes(32).toString('hex');
+        //his.salt = crypto.randomBytes(32).toString('hex');
         if (!settings) {
             this.settings = {
                 themes: {
