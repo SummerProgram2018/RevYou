@@ -1,23 +1,40 @@
-#review { 
-    #tupian {
-        width:200px;
-        height: 200px;
-        background-color: blue;
-        float: left;
-        margin-top: 1cm;
-     }
-     #des {
-         margin-left: 2cm;
-         float: left;
-         margin-top: 1cm;
-     }
-     #rev {
-         float: left;
-     }
-     section {
-         height: 300px;
-     }
-     #num {
-         float: right;
+main#review {
+    header {
+        padding: 100px 100px 0 100px;
+        section {
+            position: relative;
+        }
+        .image-container {
+            width: 400px;
+            height: 200px;
+            .centerXYFlex;
+            img {
+                max-width: 400px;
+                max-height: 200px;
+                background-color: @orange-c;
+            }
+        }
+        .description {
+            position: absolute;
+            top: 0;
+            left: 400px;
+            .stars {
+                height: 10px;
+                margin-bottom: 5px;
+                .star {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 5px;
+                    float: left;
+                    margin-right: 5px;
+                }
+                .inactive {
+                    background-color: lightgrey;
+                }
+            }
+            h5 {
+                text-transform: capitalize;
+            }
+        }
     }
 }

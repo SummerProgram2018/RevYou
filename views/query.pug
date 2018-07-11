@@ -27,6 +27,6 @@ mixin product(item)
             h6="Ratings - " + item.score + "/100"
             h6="Likes - " + item.trackers.likes
             h6="Reviews - " + item.trackers.reviews
-            .view-details.dt-hover.dt-borderh 
+            a.view-details.dt-hover.dt-borderh(href="/review/" + item.type + "/" + item.id) 
                 p View Details
             

@@ -1,15 +1,20 @@
 extends layout
 block content
-    h1(align="center")="this is the review page"
     main#review
-        each x in [1, 2, 3, 4, 5]
+        header
             section
-                div#tupian 
-                    img(src="", alt="",width="100px") 
-                div#des
-                    h1(size="3")="this is the description " + x
-                    h2(size="3")="this is the description"
-                    h3(size="3")="this is the description"
-                    h1(size="3")="this is the comment" 
-                div#num
-                    h1(size="3")="No.1" 
+                .image-container
+                    img(src=product.imageLink)
+                .description
+                    h2=product.name
+                    .stars
+                        - var a = 0
+                        while a < ratings.activeRating
+                            .star.dt-bg
+                            - a++
+                        - var b = 0
+                        while b < ratings.inactiveRating
+                            .star.inactive
+                            - b++
+                    h5=product.type + " | " + product.releaseDate + " | " + product.score + "/100"
+                    p=product.desc
