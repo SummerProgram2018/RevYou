@@ -35,9 +35,15 @@ export class User implements IUser {
     public setUser(id: string): void {
         this.id = id;
     }
-    public setPassword(pass: string, key: string): void {
-        const saltedPass = salt + pass;
+    private hashPassword(pass: string, key: string): string {
+        const saltedPass = this.salt + pass;
         const hasher = sha512.hmac(key);
-        this.password = hasher.finalise(saltedPass);
+        return hasher.finalise(saltedPass);
+    }
+    public setPassword(pass: string, key: string): void {
+        this.password = hashPassword(pass, key);
+    }
+    public checkPassword(pass: string, key: string): boolean {
+        return this.password === hashPassword(pass, key);
     }
 }
