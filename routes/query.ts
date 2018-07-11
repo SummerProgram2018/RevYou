@@ -6,10 +6,11 @@ export const router = express.Router();
 import * as fuse from "fuse.js";
 
 router.get("/", (req, res, next) => {
-    const data: object = {
+    console.log(req.query);
+    const data: any = {
         games: new ProductDatabase("src/data/games.json"),
-        movies: new ProductDatabase("src/data/movies.json")
-        // books: new ProductDatabase("src/data/books.json")
+        movies: new ProductDatabase("src/data/movies.json"),
+        books: new ProductDatabase("src/data/books.json")
     };
     let dataSet: any[] = [];
     let filteredSet: any[] = [];
@@ -31,14 +32,15 @@ router.get("/", (req, res, next) => {
                 dataSet.push(selection);
             }
         }
-    } else if (req.query.search) {
-        const thonk = new fuse(filteredSet, fuseOptions);
-        dataSet = thonk.search(req.query.search);
     } else {
         dataSet = data[req.query.productType].getData();
         if (!dataSet) {
             dataSet = [];
         }
+    }
+    if (req.query.search) {
+        const thonk = new fuse(dataSet, fuseOptions);
+        dataSet = thonk.search(req.query.search);
     }
     filteredSet = dataSet;
     res.render("query", {

@@ -1,0 +1,76 @@
+section.form-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    z-index: 1;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    .animate-standard(0.2s);
+    ion-icon {
+        font-size: 25px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+    }
+    h2 {
+        color: white;
+    }
+    hr {
+        background-color: white;
+    }
+    .clickable-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: inherit;
+        height: inherit;
+    }
+    .dynamic-form {
+        width: 600px;
+        background-color: @orange-c;
+        padding: 50px;
+        border-radius: 7px;
+        opacity: 0;
+        pointer-events: none;
+        .centerXY;
+        section {
+            h4 {
+                color: white;
+            }
+            input {
+                width: 100%;
+                background-color: @background-standard;
+                padding: 5px;
+                border-style: none;
+                .animate-standard(0.1s);
+                &:focus {
+                    outline: none;
+                }
+                &:hover {
+                    opacity: 0.9;
+                }
+            }
+            section {
+                margin-top: 10px;
+            }
+            section.buttons {
+                margin-top: 20px;
+                .button {
+                    cursor: pointer;
+                }
+            }
+            section.error {
+                height: 20px;
+            }
+        }
+    }  
+}
+
+.form-visible {
+    opacity: 1 !important;
+    pointer-events: all !important;
+}

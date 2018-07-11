@@ -37,6 +37,14 @@ header#index {
         }
         form {
             margin-top: 30px;
+            input.submit {
+                cursor: pointer;
+                &:focus {
+                    outline: none;
+                    border-color: @orange-c;
+                    box-shadow: none;
+                }
+            }
         }
         .title {
             p {
@@ -53,8 +61,8 @@ header#index {
     }
     .background-holder {
         background-image: url("https://picjumbo.com/wp-content/uploads/krivan-mountain-slovakia-free-photo-HNCK0614-2210x1473.jpg");
-        filter: blur(3px);
-        transform: scaleZ(1.2);
+        // filter: blur(3px);
+        transform: scale(1.2);
     }
 }
 
