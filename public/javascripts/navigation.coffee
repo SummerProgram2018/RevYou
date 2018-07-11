@@ -1,4 +1,14 @@
+submitData = (route, data) =>
+    $.ajax
+        url: route
+        type: 'POST'
+        data: data
+
+
 $(document).ready =>
+    submitData("user/getSessionId", {}).then (res) =>
+        if res
+            $("nav li.login p").text("Sign Out")
     $("nav#pages").css "left", "-80px"
     $("nav#user-nav").css "right", "-80px"
     navLeftOpen = false;
@@ -19,12 +29,18 @@ $(document).ready =>
         $(".center-bar .alterable").text($(this).text())
         $("form.search-form .product-type").val($(this).text().toLowerCase())
     showPageOpen = false;
-    $("#user-nav .profile").click =>
-        if !showPageOpen
-            $(".form-container, .form-container .dynamic-form.login-form").addClass("form-visible")
-        else
-            $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
-        showPageOpen = !showPageOpen
+    $("#user-nav .login").click =>
+        submitData("user/getSessionId", {}).then (res1) =>
+            if res1
+                submitData("user/logout", {}).then (res2) =>
+                    if res2
+                        location.reload()
+            else
+                if !showPageOpen
+                    $(".form-container, .form-container .dynamic-form.login-form").addClass("form-visible")
+                else
+                    $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
+                showPageOpen = !showPageOpen
     $(".form-container .close, .form-container .clickable-bg").click =>
         $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
         showPageOpen = false;

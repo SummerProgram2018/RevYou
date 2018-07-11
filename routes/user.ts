@@ -48,6 +48,10 @@ router.post("/:method", (req, res, next) => {
         case ("getSettings"):
             getSettings();
             break;
+        case ("logout"):
+            res.clearCookie("id");
+            response = new RevYouStatus(true, "Logged out");
+            break;
         case ("deleteUser"):
             response = userDb.removeUser(req.params.username);
             break;
