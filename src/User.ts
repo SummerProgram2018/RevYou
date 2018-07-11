@@ -1,6 +1,6 @@
 import { IUser } from "IUser";
-import crypto from "crypto";
-import sha512 from "sha512";
+import * as crypto from "crypto";
+import * as sha from "sha.js";
 export class User implements IUser {
     public id: string;
     public password: string;
@@ -16,7 +16,7 @@ export class User implements IUser {
     private salt: string;
     public constructor(id: string, password: string, settings?: any) {
         this.id = id;
-        this.password = password;
+        this.setPassword(password, "egg");
         this.salt = crypto.randomBytes(32).toString("hex");
         if (!settings) {
             this.settings = {
@@ -43,7 +43,6 @@ export class User implements IUser {
     }
     private hashPassword(pass: string, key: string): string {
         const saltedPass = this.salt + pass;
-        const hasher = sha512.hmac(key);
-        return hasher.finalise(saltedPass);
+        return sha("sha512").update(saltedPass).digest("hex");
     }
 }
