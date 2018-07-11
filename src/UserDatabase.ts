@@ -3,7 +3,6 @@ import { Database } from "./Database";
 import { IDatabase } from "IDatabase";
 import { User } from "./User";
 import { RevYouStatus } from "./RevYouStatus";
-import { fail } from "assert";
 
 export class UserDatabase extends Database implements IDatabase {
     public constructor(db: string) {
