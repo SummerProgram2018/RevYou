@@ -41,9 +41,9 @@ export class User implements IUser {
         return hasher.finalise(saltedPass);
     }
     public setPassword(pass: string, key: string): void {
-        this.password = hashPassword(pass, key);
+        this.password = this.hashPassword(pass, key);
     }
     public checkPassword(pass: string, key: string): boolean {
-        return this.password === hashPassword(pass, key);
+        return this.password === this.hashPassword(pass, key);
     }
 }
