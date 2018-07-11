@@ -27,3 +27,11 @@ $(document).ready =>
     $(".form-container .close, .form-container .clickable-bg").click =>
         $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
         showPageOpen = false;
+    $(".form-container .dynamic-form.login-form .register").click =>
+        $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
+        $(".form-container, .form-container .dynamic-form.register-form").addClass("form-visible")
+    $(".form-container .dynamic-form.register-form .login").click =>
+        $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
+        $(".form-container, .form-container .dynamic-form.login-form").addClass("form-visible")
+    $("nav li.home").click =>
+        window.location.href = "/";

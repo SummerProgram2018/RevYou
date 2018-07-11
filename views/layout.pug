@@ -59,6 +59,9 @@ html
             .button-container
                 .bar.dt-bg
                 ul
+                    li.dt-hover.dt-hover-children.dt-borderh.home
+                        ion-icon.dt-hover.dt-texth(name="home")
+                        p Home
                     li.dt-hover.dt-hover-children.dt-borderh.profile
                         ion-icon.dt-hover.dt-texth(name="contact")
                         p Profile
@@ -86,11 +89,11 @@ html
                             p="Error"
                         section.buttons
                             input.button.submit(type="submit", value="Login")
-                            input.button(type="button", value="Register")
-            .dynamic-form.login-form
+                            input.button.register(type="button", value="New User? Register Here!")
+            .dynamic-form.register-form
                 ion-icon.close(name="close")
                 section
-                    h2="Register"
+                    h2="Register New Account"
                     hr
                     form(action="user", method="get")
                         section
@@ -99,11 +102,14 @@ html
                         section
                             h4="Password"
                             input.info.password(type="password", name="password", placeholder="********")
+                        section
+                            h4="Password"
+                            input.info.password(type="password", name="password", placeholder="********")
                         section.error
                             p="Error"
                         section.buttons
-                            input.button.submit(type="submit", value="Login")
-                            input.button(type="button", value="Register")
+                            input.button.submit(type="submit", value="Register")
+                            input.button.login(type="button", value="Existing User? Login Here!")
 
     block content
     script(type="text/javascript" src="/javascripts/loader.js")

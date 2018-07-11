@@ -1,3 +1,5 @@
 $(document).ready =>
-    $("section.form-container form .submit").click (e) =>
+    $(".form-container .register-form .submit").click (e) =>
+        alert $(".form-container")
         e.preventDefault()
+
