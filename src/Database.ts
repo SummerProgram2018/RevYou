@@ -27,12 +27,19 @@ export class Database implements IDatabase {
     public merge(dir: string, out: string, type: string): void {
         const files = fs.readdirSync(dir);
         const outStr = [];
+        let counter = 0;
         for (const file of files) {
             try {
                 let data: any = fs.readFileSync(dir + "/" + file);
                 data = JSON.parse(data);
                 data.type = type;
+                data.id = counter;
+                data.trackers = {
+                    likes: 0,
+                    reviews: 0
+                };
                 outStr.push(data);
+                counter++;
             } catch (e) {
                 throw e;
             }
