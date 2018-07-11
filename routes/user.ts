@@ -4,28 +4,55 @@ import * as express from "express";
 import { RevYouStatus } from "../src/RevYouStatus";
 export const router = express.Router();
 
-router.get("/:method", (req, res, next) => {
+router.post("/:method", (req, res, next) => {
     const userDb = new UserDatabase("src/data/user.json");
     let response: RevYouStatus;
-    const renderProfile = (id: string): void => {
-        const userData: User[] = userDb.getData();
-        const index = userData.findIndex((e: User) => e.id === req.params.id);
-        res.render("profile", {
-            data: userData[index]
-        });
+    const login = () => {
+        const data: User[] = userDb.getData();
+        const index = data.findIndex((e: User) => e.id === req.body.username);
+        if (index === -1) {
+            res.send(JSON.stringify(new RevYouStatus(false, "Invalid details.")));
+            return;
+        }
+        const password = data[index].password;
+        const user = new User(req.body.username, req.body.password);
+        if (password !== user.password) {
+            res.send(JSON.stringify(new RevYouStatus(false, "Invalid details")));
+            return;
+        }
+        res.cookie("id", req.body.username);
+        res.send(JSON.stringify(new RevYouStatus(true, "Logged in.")));
+    };
+    const getSettings = () => {
+        const data: User[] = userDb.getData();
+        const index = data.findIndex((e: User) => e.id === req.body.username);
+        if (index === -1) {
+            res.send(JSON.stringify(new RevYouStatus(false, "Not found.")));
+            return;
+        }
+        res.send(JSON.stringify(data[index].settings));
     };
     switch (req.params.method) {
         case ("newUser"):
-            response = userDb.addUser(new User("test", "pass"));
+            response = userDb.addUser(new User(req.body.username, req.body.password));
+            if (response.status) {
+                res.cookie("id", req.body.username);
+            }
+            break;
+        case ("getSessionId"):
+            res.send(req.cookies.id);
+            break;
+        case ("login"):
+            login();
+            break;
+        case ("getSettings"):
+            getSettings();
             break;
         case ("deleteUser"):
-            response = userDb.removeUser(req.params.id);
-            break;
-        case ("profile"):
-            renderProfile(req.params.id);
+            response = userDb.removeUser(req.params.username);
             break;
     }
-    if (!response.status) {
-        res.send(response.message);
+    if (response) {
+        res.send(JSON.stringify(response));
     }
 });
