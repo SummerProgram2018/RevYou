@@ -13,6 +13,7 @@ $(document).ready =>
             $(".dt-text").css("color", rgb)
             $(".dt-bg").css("background-color", rgb)
             $(".dt-border").css("border-color", rgb)
+            $(".dt-outline").css("-webkit-text-stroke-color", rgb)
 
     $(".theme-selec li").click ->
         rgb = $(this).css("background-color")

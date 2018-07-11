@@ -22,8 +22,11 @@ mixin product(item)
             hr
             p=item.desc
         .stat
-            h6.orange-t="Type - " + item.type
+            h6.dt-text="Type - " + item.type
             h6="Release Date - " + item.releaseDate
             h6="Ratings - " + item.score + "/100"
-            h6="Likes - 10231"
-            h6="Reviews - 643"
+            h6="Likes - " + item.trackers.likes
+            h6="Reviews - " + item.trackers.reviews
+            .view-details.dt-hover.dt-borderh 
+                p View Details
+            
