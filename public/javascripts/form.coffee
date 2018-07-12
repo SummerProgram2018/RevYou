@@ -54,34 +54,41 @@ $(document).ready =>
                 location.reload()
     $(".form-container .add-review-form .submit").click =>
         $(".add-review-form .review-text").css("border", "1px solid transparent")
-        $(".add-review-form .catagory .cat").css("border", "1px solid transparent")
-        $(".add-review-form .catagory .rating").css("border", "1px solid transparent")
+        $(".add-review-form .category .cat").css("border", "1px solid transparent")
+        $(".add-review-form .category .rating").css("border", "1px solid transparent")
         $(".add-review-form .overall").css("border", "1px solid transparent")
-        allCatagory = []
+        $(".add-review-form .title").css("border", "1px solid transparent")
+        allcategory = []
+        if not $(".add-review-form .title").val()
+            $(".add-review-form .title").css("border", "1px solid black")
         if not $(".add-review-form .review-text").val()
             $(".add-review-form .review-text").css("border", "1px solid black")
         if not $(".add-review-form .overall").val() or isNaN($(".add-review-form .overall").val())
             $(".add-review-form .overall").css("border", "1px solid black")
-        for section in $(".add-review-form .catagory")
-            catagory = $(section).find(".cat")
+        for section in $(".add-review-form .category")
+            category = $(section).find(".cat")
             rating = $(section).find(".rating")
-            if not catagory.val()
-                catagory.css("border", "1px solid black")
+            if not category.val()
+                category.css("border", "1px solid black")
             if not rating.val() or isNaN(rating.val())
                 rating.css("border", "1px solid black")
-            if allCatagory.indexOf(catagory.val()) != -1
-                catagory.css("border", "1px solid black")
-            if catagory.val() and rating.val() and not isNaN(rating.val()) and allCatagory.indexOf(catagory.val()) == -1
-                allCatagory.push([catagory.val().toLowerCase(), rating.val()])
-        if $(".add-review-form .review-text").val() and $(".add-review-form .overall").val() and not isNaN($(".add-review-form .overall").val())
-            submitData("/review/addReview", {
-                reviewText: $(".add-review-form .review-text").val()
-                catagory: allCatagory
-                overall: $(".add-review-form .overall").val()
-            }).then (res) =>
-                if not JSON.parse(res).status
-                    $(".form-container .login-form .error").text(JSON.parse(res).message)
-                else
-                    location.reload()
-        allCatagory = []
+            if allcategory.indexOf(category.val()) != -1
+                category.css("border", "1px solid black")
+            if category.val() and rating.val() and not isNaN(rating.val()) and allcategory.indexOf(category.val()) == -1
+                allcategory.push([category.val().toLowerCase(), rating.val()])
+        if $(".add-review-form .review-text").val() and $(".add-review-form .overall").val() and not isNaN($(".add-review-form .overall").val()) and $(".add-review-form .title").val()
+            submitData("/user/getSessionId", {}).then (userId) =>
+                submitData("/review/addReview", {
+                    title: $(".add-review-form .title").val()
+                    reviewText: $(".add-review-form .review-text").val()
+                    category: allcategory
+                    overall: $(".add-review-form .overall").val()
+                    gameId: $("#review").attr("game")
+                    userId: userId
+                }).then (res) =>
+                    if not JSON.parse(res).status
+                        $(".form-container .login-form .error").text(JSON.parse(res).message)
+                    else
+                        location.reload()
+        allcategory = []
             
