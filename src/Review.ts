@@ -5,11 +5,13 @@ import { ReviewEdit } from "./ReviewEdit";
 export class Review {
     public readonly productId: string;
     public readonly authorId: string;
+    public type: string;
     public contents: ReviewEdit[];
-    public constructor(productId: string, authorId: string,
+    public constructor(productId: string, authorId: string, type: string,
                        timestamp: Date, overall: ReviewField, categories: ReviewField[]) {
         this.productId = productId;
         this.authorId = authorId;
+        this.type = type;
         this.contents = [];
         this.addEdit(timestamp, overall, categories);
     }

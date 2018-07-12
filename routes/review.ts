@@ -18,6 +18,7 @@ router.post("/:method", (req, res, next) => {
     const review = new Review(
         req.body.gameId,
         req.body.userId,
+        req.body.type,
         new Date(),
         new ReviewField(req.body.title, Number(req.body.overall), req.body.reviewText),
         category
@@ -40,8 +41,17 @@ router.get("/:type/:id", (req, res, next) => {
         activeRating++;
     }
     const inactiveRating = 10 - activeRating;
+    const reviewDb = new ReviewDatabase("src/data/reviews.json");
+    const reviewSet: Review[] = [];
+    for (const review of reviewDb.getData()) {
+        if (review.type.toLowerCase() === req.params.type.toLowerCase()
+            && review.productId === req.params.id) {
+                reviewSet.push(review);
+        }
+    }
     res.render("review", {
         product: dataSet[index],
+        reviewSet,
         ratings: {
             activeRating,
             inactiveRating

@@ -86,8 +86,9 @@ $(document).ready =>
                     reviewText: $(".add-review-form .review-text").val()
                     category: JSON.stringify(allcategory)
                     overall: $(".add-review-form .overall").val()
-                    gameId: $("#review").attr("game")
+                    gameId: $("#review").attr("pid")
                     userId: userId
+                    type: $("#review").attr("type")
                 }).then (res) =>
                     if not JSON.parse(res).status
                         $(".form-container .login-form .error").text(JSON.parse(res).message)
