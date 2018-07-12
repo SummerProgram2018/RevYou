@@ -23,7 +23,11 @@ router.get("/", (req, res, next) => {
         }, {
             name: "desc",
             weight: 0.25
-        }]
+        }],
+        shouldSort: True,
+        tokenize: True,
+        minMatchCharLength: 1,
+        threshold: 0.6
     };
     if (!req.query.productType || req.query.productType === "anything") {
         for (let i = 0; i < 100; i++) {
