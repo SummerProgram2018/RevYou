@@ -1,25 +1,47 @@
-header {
-    .theme-selec {
-        position: absolute;
-        width: 20px;
-        height: inherit;
-        right: 100px;
-        .centerXYFlex;
-        ul {
-            li {
-                width: 20px;
-                height: 20px;
-                margin: 10px 0 10px 0;
-                border-radius: 10px;
-                cursor: pointer;
-                .animate-standard(0.2s);
-                &:hover {
-                    border-radius: 5px;
-                }
-            }
+
+.theme-selec-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+    .animate-standard(0.2s);
+}
+.theme-selec {
+    width: 300px;
+    height: 200px;
+    right: 100px;
+    z-index: 2;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    background-color: white;
+    padding: 20px;
+    .centerXY;
+    position: absolute;
+    .centerXYFlex;
+    .theme {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        margin: 10px;
+        cursor: pointer;
+        &:hover {
+            border: 1px solid black;
         }
     }
+    .close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+    p.text {
+        .centerX;
+        bottom: 0;
+    }
 }
+
 
 .dt-text,
 .dt-bg,
