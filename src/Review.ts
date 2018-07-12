@@ -12,7 +12,7 @@ export class Review {
         this.addEdit(timestamp, overall, categories);
     }
     public addEdit(timestamp: Date, overall: ReviewField, categories: ReviewField): void {
-        const e = ReviewEdit(timestamp, overall, categories);
+        const e = new ReviewEdit(timestamp, overall, categories);
         this.contents.push(e);
     }
 }
