@@ -8,6 +8,7 @@ import { router as index } from "./routes/index";
 import { router as user } from "./routes/user";
 import { router as review } from "./routes/review";
 import { router as query } from "./routes/query";
+import { router as profile } from "./routes/profile";
 
 export const app = express();
 
@@ -31,6 +32,7 @@ app.use("/", index);
 app.use("/user", user);
 app.use("/review", review);
 app.use("/query", query);
+app.use("/profile", profile);
 
 app.use((req, res, next) => {
     let err: any = new Error("Not Found");
