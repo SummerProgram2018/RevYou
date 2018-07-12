@@ -1,5 +1,3 @@
-import Math from "Math";
-
 export class ReviewField {
     public readonly title: string; // eg. "Gameplay", "Graphics", "Sound", "Overall"
     public readonly description: string; // List of thoughts and opinions on the product

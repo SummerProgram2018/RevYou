@@ -24,8 +24,8 @@ router.get("/", (req, res, next) => {
             name: "desc",
             weight: 0.25
         }],
-        shouldSort: True,
-        tokenize: True,
+        shouldSort: true,
+        tokenize: true,
         minMatchCharLength: 1,
         threshold: 0.6
     };
