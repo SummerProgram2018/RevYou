@@ -58,16 +58,17 @@ $(document).ready =>
         $(".add-review-form .category .rating").css("border", "1px solid transparent")
         $(".add-review-form .overall").css("border", "1px solid transparent")
         $(".add-review-form .title").css("border", "1px solid transparent")
-        allcategory = []
         if not $(".add-review-form .title").val()
             $(".add-review-form .title").css("border", "1px solid black")
         if not $(".add-review-form .review-text").val()
             $(".add-review-form .review-text").css("border", "1px solid black")
         if not $(".add-review-form .overall").val() or isNaN($(".add-review-form .overall").val())
             $(".add-review-form .overall").css("border", "1px solid black")
+        allcategory = []
         for section in $(".add-review-form .category")
             category = $(section).find(".cat")
             rating = $(section).find(".rating")
+            console.log(category.val(), rating.val())
             if not category.val()
                 category.css("border", "1px solid black")
             if not rating.val() or isNaN(rating.val())
@@ -75,13 +76,15 @@ $(document).ready =>
             if allcategory.indexOf(category.val()) != -1
                 category.css("border", "1px solid black")
             if category.val() and rating.val() and not isNaN(rating.val()) and allcategory.indexOf(category.val()) == -1
+                console.log(category, rating)
                 allcategory.push([category.val().toLowerCase(), rating.val()])
         if $(".add-review-form .review-text").val() and $(".add-review-form .overall").val() and not isNaN($(".add-review-form .overall").val()) and $(".add-review-form .title").val()
             submitData("/user/getSessionId", {}).then (userId) =>
+                console.log(allcategory)
                 submitData("/review/addReview", {
                     title: $(".add-review-form .title").val()
                     reviewText: $(".add-review-form .review-text").val()
-                    category: allcategory
+                    category: JSON.stringify(allcategory)
                     overall: $(".add-review-form .overall").val()
                     gameId: $("#review").attr("game")
                     userId: userId
@@ -90,5 +93,5 @@ $(document).ready =>
                         $(".form-container .login-form .error").text(JSON.parse(res).message)
                     else
                         location.reload()
-        allcategory = []
+                allcategory = []
             
