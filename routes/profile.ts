@@ -6,6 +6,6 @@ export const router = express.Router();
 
 router.get("/:id", (req, res, next) => {
     res.render("profile", {
-        user: user
+        user: User
     });
 });
