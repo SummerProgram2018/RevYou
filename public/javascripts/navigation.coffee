@@ -50,3 +50,7 @@ $(document).ready =>
     $(".theme-selec-container, .theme-selec-container .close").click =>
         $(".theme-selec-container").removeClass("form-visible")
         themeVisible = false
+    $("nav .profile").click =>
+        submitData("/user/getSessionId", {}).then (res) =>
+            if res
+                window.location.href = "/profile/" + res
