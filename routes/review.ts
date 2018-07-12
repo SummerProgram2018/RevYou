@@ -13,13 +13,11 @@ router.get("/:type/:id", (req, res, next) => {
     const index = dataSet.findIndex((e: Product) => Number(e.id) === Number(req.params.id));
     let rating = Number(dataSet[index].score);
     let activeRating = 0;
-    console.log(rating)
-    while (rating > 10) {
+    while (rating >= 10) {
         rating -= 10;
         activeRating++;
     }
-    const inactiveRating = 10 - rating;
-    console.log(activeRating)
+    const inactiveRating = 10 - activeRating;
     res.render("review", {
         product: dataSet[index],
         ratings: {
