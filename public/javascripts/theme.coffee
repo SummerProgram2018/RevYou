@@ -3,7 +3,6 @@ submitData = (route, data) =>
         url: route
         type: 'POST'
         data: data
-
 $(document).ready =>
     rgb = null
     submitData("/user/getSettings", {}).then (res) =>
@@ -16,12 +15,16 @@ $(document).ready =>
         $(".dt-border").css("border-color", rgb)
         $(".dt-outline").css("-webkit-text-stroke-color", rgb)
 
-    $(".theme-selec li").click ->
+    $(".theme-selec .theme").click ->
         rgb = $(this).css("background-color")
         $(".dt-text").css("color", rgb)
         $(".dt-bg").css("background-color", rgb)
         $(".dt-border").css("border-color", rgb)
-    
+
+    $(".theme-selec .theme").hover ->
+        colour = $(this).attr("colour")
+        $(".theme-selec .text").text(colour)
+
     setStyle = (e) =>
         for elem in e
             elem = $(elem)

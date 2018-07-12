@@ -68,7 +68,7 @@ html
                     li.dt-hover.dt-hover-children.dt-borderh
                         ion-icon.dt-hover.dt-texth(name="options")
                         p Settings
-                    li.dt-hover.dt-hover-children.dt-borderh
+                    li.dt-hover.dt-hover-children.dt-borderh.themes
                         ion-icon.dt-hover.dt-texth(name="beaker")
                         p Themes
                     li.dt-hover.dt-hover-children.dt-borderh.login
@@ -140,12 +140,18 @@ html
                             p=""
                         section.buttons
                             .button.submit Add
-        // .theme-selec
+        .theme-selec-container
+            .theme-selec
+                ion-icon.close(name="close")
+                .theme.orange-b(colour="#ee6c30")
+                .theme.pink-b(colour="#ff008b")
+                .theme.cyan-b(colour="#00c0ff")
+                .theme.lime-b(colour="#30ee60")
+                p.text
     block content
     script(type="text/javascript" src="/javascripts/theme.js")
     script(type="text/javascript" src="/javascripts/loader.js")
     script(type="text/javascript" src="/javascripts/navigation.js")
-
     script(type="text/javascript" src="/javascripts/form.js")
     script(type="text/javascript" src="/node_modules/ionicons/dist/ionicons.js")
     

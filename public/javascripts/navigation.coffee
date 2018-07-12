@@ -41,3 +41,12 @@ $(document).ready =>
                 showPageOpen = !showPageOpen
     $("nav li.home").click =>
         window.location.href = "/";
+    themeVisible = false;
+    $("nav .themes").click =>
+        $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
+        if themeVisible then $(".theme-selec-container").removeClass("form-visible")
+        else $(".theme-selec-container").addClass("form-visible")
+        themeVisible = !themeVisible
+    $(".theme-selec-container, .theme-selec-container .close").click =>
+        $(".theme-selec-container").removeClass("form-visible")
+        themeVisible = false
