@@ -1,8 +1,7 @@
 import * as fs from "fs";
-import { Database } from "Database";
-import { User } from "User";
-import { IDatabase } from "IDatabase";
-import { Review } from "Review";
+import { Database } from "./Database";
+import { IDatabase } from "./IDatabase";
+import { Review } from "./Review";
 
 export class ReviewDatabase extends Database implements IDatabase {
     public constructor(db: string) {

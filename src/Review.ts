@@ -1,6 +1,6 @@
-import { ReviewField } from "ReviewField";
-import { User } from "User";
-import { ReviewEdit } from "ReviewEdit";
+import { ReviewField } from "./ReviewField";
+import { User } from "./User";
+import { ReviewEdit } from "./ReviewEdit";
 
 export class Review {
     public readonly productId: string;

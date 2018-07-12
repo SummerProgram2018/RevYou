@@ -28,9 +28,9 @@ $(document).ready =>
         $("form.search-form .product-type").val($(this).text().trim().toLowerCase())
     showPageOpen = false;
     $("#user-nav .login").click =>
-        submitData("user/getSessionId", {}).then (res1) =>
+        submitData("/user/getSessionId", {}).then (res1) =>
             if res1
-                submitData("user/logout", {}).then (res2) =>
+                submitData("/user/logout", {}).then (res2) =>
                     if res2
                         location.reload()
             else
@@ -39,14 +39,5 @@ $(document).ready =>
                 else
                     $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
                 showPageOpen = !showPageOpen
-    $(".form-container .close, .form-container .clickable-bg").click =>
-        $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
-        showPageOpen = false;
-    $(".form-container .dynamic-form.login-form .register").click =>
-        $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
-        $(".form-container, .form-container .dynamic-form.register-form").addClass("form-visible")
-    $(".form-container .dynamic-form.register-form .login").click =>
-        $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
-        $(".form-container, .form-container .dynamic-form.login-form").addClass("form-visible")
     $("nav li.home").click =>
         window.location.href = "/";

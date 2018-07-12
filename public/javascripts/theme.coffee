@@ -10,10 +10,11 @@ $(document).ready =>
         if JSON.parse(res).themes
             rgb = JSON.parse(res).themes.contrast
             if not rgb then rgb = "#ee6c30"
-            $(".dt-text").css("color", rgb)
-            $(".dt-bg").css("background-color", rgb)
-            $(".dt-border").css("border-color", rgb)
-            $(".dt-outline").css("-webkit-text-stroke-color", rgb)
+        if not rgb then rgb = "#ee6c30"
+        $(".dt-text").css("color", rgb)
+        $(".dt-bg").css("background-color", rgb)
+        $(".dt-border").css("border-color", rgb)
+        $(".dt-outline").css("-webkit-text-stroke-color", rgb)
 
     $(".theme-selec li").click ->
         rgb = $(this).css("background-color")

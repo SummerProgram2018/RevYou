@@ -15,8 +15,13 @@ $(document).ready =>
         $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
         $(".form-container, .form-container .dynamic-form.login-form").addClass("form-visible")
     $("#review .buttons .add-review").click =>
-        $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
-        $(".form-container, .form-container .dynamic-form.add-review-form").addClass("form-visible")
+        submitData("/user/getSessionId", {}).then (res) =>
+            if res
+                $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
+                $(".form-container, .form-container .dynamic-form.add-review-form").addClass("form-visible")
+            else
+                $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
+                $(".form-container, .form-container .dynamic-form.login-form").addClass("form-visible")
     $(".form-container .register-form .submit").click =>
         username = $(".form-container .register-form .username").val()
         password = $(".form-container .register-form .password").val()
@@ -39,7 +44,7 @@ $(document).ready =>
     $(".form-container .login-form .submit").click =>
         username = $(".form-container .login-form .username").val()
         password = $(".form-container .login-form .password").val()
-        submitData("user/login", {
+        submitData("/user/login", {
             username: username
             password: password
         }).then (res) =>
