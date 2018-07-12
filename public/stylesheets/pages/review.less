@@ -61,8 +61,22 @@ main#review {
     }
     section.reviews {
         padding: 100px 200px 0 200px;
-        .review {
+    }
+}
 
+.dynamic-form.add-review-form {
+    .large-form {
+        height: 600px;
+        overflow-y: auto;
+        &::-webkit-scrollbar-thumb {
+            background-color: white;
         }
+    }
+    .cat {
+        width: 70%;
+    }
+    .rating {
+        width: 29%;
+        margin-left: 1%;
     }
 }
