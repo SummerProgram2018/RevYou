@@ -18,6 +18,13 @@ block content
                             - b++
                     h5=product.type + " | " + product.releaseDate + " | " + product.score + "/100"
                     p=product.desc
+        section.buttons
+            .button.dt-hover.dt-borderh
+                p Like
+            .button.add-review.dt-hover.dt-borderh
+                p Add Review
+            .button.dt-hover.dt-borderh
+                p Share
         section.reviews
             each x in [1, 1, 1, 1, 1]
                 .review
