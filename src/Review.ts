@@ -11,7 +11,7 @@ export class Review {
         this.authorId = authorId;
         this.addEdit(timestamp, overall, categories);
     }
-    public addEdit(timestamp: Date, overall: ReviewField, categories: ReviewField): void {
+    public addEdit(timestamp: Date, overall: ReviewField, categories: ReviewField[]): void {
         const e = new ReviewEdit(timestamp, overall, categories);
         this.contents.push(e);
     }
