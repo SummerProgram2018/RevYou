@@ -1,16 +1,8 @@
 import * as fs from "fs";
-<<<<<<< HEAD
 import { Database } from "./Database";
 import { IDatabase } from "./IDatabase";
 import { Review } from "./Review";
-=======
-import { Database } from "Database";
-import { User } from "User";
-import { IDatabase } from "IDatabase";
-import { Review } from "Review";
-import { ReviewField } from "ReviewField";
-
->>>>>>> c397006f36c01c07826633a849859b8eea8e88ab
+import { ReviewField } from "./ReviewField";
 
 export class ReviewDatabase extends Database implements IDatabase {
     public constructor(db: string) {
