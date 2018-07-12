@@ -123,7 +123,10 @@ html
                             h4="Review"
                             textarea.review-text(type="textarea", name="review-text")
                         section
-                            h4="Custom Ratings"
+                            h4="Overall Rating"
+                            input.overall(type="text", name="review-overall", placeholder="/100")
+                        section
+                            h4="Custom Ratings (Optional)" 
                         - var n = 0
                         while n < 8
                             section.catagory
