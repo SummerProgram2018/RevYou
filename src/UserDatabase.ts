@@ -40,7 +40,7 @@ export class UserDatabase extends Database implements IDatabase {
             }
         }
     }
-    public editSettings{uid: string, field: string, newFieldValue: string) {
+    public editSettings(uid: string, field: string, newFieldValue: string) {
         fs.readFile(this.db, (err: any, res: any) => {
             if (err) {
                 throw err;
