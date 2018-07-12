@@ -6,7 +6,6 @@ import { RevYouStatus } from "../src/RevYouStatus";
 import { Review } from "../src/Review";
 import { ReviewField } from "../src/ReviewField";
 export const router = express.Router();
-
 router.post("/:method", (req, res, next) => {
     const reviewDb = new ReviewDatabase("src/data/reviews.json");
     const category: ReviewField[] = [];
@@ -16,7 +15,7 @@ router.post("/:method", (req, res, next) => {
         }
     }
     const review = new Review(
-        req.body.gameId,
+        req.body.pId,
         req.body.userId,
         req.body.type,
         new Date(),
@@ -24,6 +23,12 @@ router.post("/:method", (req, res, next) => {
         category
     );
     reviewDb.addReview(review);
+    const data: any = {
+        game: new ProductDatabase("src/data/games.json"),
+        movie: new ProductDatabase("src/data/movies.json"),
+        book: new ProductDatabase("src/data/books.json")
+    };
+    const db: ProductDatabase = data[req.body.type].addTrackerNum(req.body.pId, 1, "reviews");
     res.send(new RevYouStatus(true, "Added review to DB"));
 });
 router.get("/:type/:id", (req, res, next) => {

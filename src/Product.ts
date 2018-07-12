@@ -6,8 +6,9 @@ export class Product {
     public description: string;
     public reviews: Review[];
     public type: string;
-    public tracker: {
+    public trackers: {
         likes: number
+        reviews: number;
     };
     public constructor(name: string, description: string, type: string) {
         this.name = name;

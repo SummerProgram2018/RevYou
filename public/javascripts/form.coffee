@@ -80,19 +80,15 @@ $(document).ready =>
                 allcategory.push([category.val().toLowerCase(), rating.val()])
         if $(".add-review-form .review-text").val() and $(".add-review-form .overall").val() and not isNaN($(".add-review-form .overall").val()) and $(".add-review-form .title").val()
             submitData("/user/getSessionId", {}).then (userId) =>
-                console.log(allcategory)
                 submitData("/review/addReview", {
                     title: $(".add-review-form .title").val()
                     reviewText: $(".add-review-form .review-text").val()
                     category: JSON.stringify(allcategory)
                     overall: $(".add-review-form .overall").val()
-                    gameId: $("#review").attr("pid")
+                    pId: $("#review").attr("pid")
                     userId: userId
                     type: $("#review").attr("type")
                 }).then (res) =>
-                    if not JSON.parse(res).status
-                        $(".form-container .login-form .error").text(JSON.parse(res).message)
-                    else
-                        location.reload()
+                    location.reload()
                 allcategory = []
             
