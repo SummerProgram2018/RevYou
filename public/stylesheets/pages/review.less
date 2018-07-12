@@ -1,6 +1,6 @@
 main#review {
     header {
-        padding: 100px 100px 0 100px;
+        padding: 100px 200px 0 200px;
         section {
             position: relative;
         }
@@ -11,7 +11,6 @@ main#review {
             img {
                 max-width: 600px;
                 max-height: 400px;
-                height: 100%;
                 background-color: @orange-c;
             }
         }
@@ -38,10 +37,46 @@ main#review {
             }
         }
     }
+    section.buttons {
+        width: 100%;
+        height: 50px;
+        padding: 0 200px 0 200px;
+        .centerXYFlex;
+        .button {
+            width: 200px;
+            height: 100%;
+            float: left;
+            text-align: center;
+            border: 1px solid lightgrey;
+            margin: 0 30px 0 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            .centerXYFlex;
+            .animate-standard(0.2s);
+            p {
+                text-align: center;
+                margin: 0;
+            }
+        }
+    }
     section.reviews {
         padding: 100px 200px 0 200px;
-        .review {
+    }
+}
 
+.dynamic-form.add-review-form {
+    .large-form {
+        height: 600px;
+        overflow-y: auto;
+        &::-webkit-scrollbar-thumb {
+            background-color: white;
         }
+    }
+    .cat {
+        width: 70%;
+    }
+    .rating {
+        width: 29%;
+        margin-left: 1%;
     }
 }

@@ -5,6 +5,18 @@ submitData = (route, data) =>
         data: data
 
 $(document).ready =>
+    $(".form-container .close, .form-container .clickable-bg").click =>
+        $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
+        showPageOpen = false;
+    $(".form-container .dynamic-form.login-form .register").click =>
+        $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
+        $(".form-container, .form-container .dynamic-form.register-form").addClass("form-visible")
+    $(".form-container .dynamic-form.register-form .login").click =>
+        $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
+        $(".form-container, .form-container .dynamic-form.login-form").addClass("form-visible")
+    $("#review .buttons .add-review").click =>
+        $(".form-container, .form-container .dynamic-form").removeClass("form-visible")
+        $(".form-container, .form-container .dynamic-form.add-review-form").addClass("form-visible")
     $(".form-container .register-form .submit").click =>
         username = $(".form-container .register-form .username").val()
         password = $(".form-container .register-form .password").val()
