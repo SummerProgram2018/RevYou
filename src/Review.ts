@@ -16,6 +16,11 @@ export class Review {
         this.addEdit(timestamp, overall, categories);
     }
     public addEdit(timestamp: Date, overall: ReviewField, categories: ReviewField[]): void {
+<<<<<<< HEAD
         this.contents.push(new ReviewEdit(timestamp, overall, categories));
+=======
+        const e = new ReviewEdit(timestamp, overall, categories);
+        this.contents.push(e);
+>>>>>>> c397006f36c01c07826633a849859b8eea8e88ab
     }
 }

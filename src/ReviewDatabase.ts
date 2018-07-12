@@ -1,7 +1,16 @@
 import * as fs from "fs";
+<<<<<<< HEAD
 import { Database } from "./Database";
 import { IDatabase } from "./IDatabase";
 import { Review } from "./Review";
+=======
+import { Database } from "Database";
+import { User } from "User";
+import { IDatabase } from "IDatabase";
+import { Review } from "Review";
+import { ReviewField } from "ReviewField";
+
+>>>>>>> c397006f36c01c07826633a849859b8eea8e88ab
 
 export class ReviewDatabase extends Database implements IDatabase {
     public constructor(db: string) {
@@ -12,5 +21,17 @@ export class ReviewDatabase extends Database implements IDatabase {
     }
     public containsUser(user: string): boolean {
         return;
+    }
+    public editReview(authorId: string, productId: string, timestamp: Date,
+                      overall: ReviewField, categories: ReviewField[]) {
+        fs.readFile(this.db, (err: any, res: any) => {
+            if (err) {
+                throw err;
+            }
+            const reviews: Review[] = JSON.parse(res);
+            const index = reviews.findIndex(e => e.authorId === authorId && e.productId === productId);
+            reviews[index].addEdit(timestamp, overall, categories);
+            fs.writeFileSync(this.db, JSON.stringify(reviews));
+        });
     }
 }
