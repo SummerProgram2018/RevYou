@@ -1,17 +1,18 @@
-
 import { ReviewField } from "ReviewField";
 import { User } from "User";
+import { ReviewEdit } from "ReviewEdit";
 
 export class Review {
-    public readonly id: string;
-    public readonly content: ReviewField; // If we use this, the title for this one must be "Overall".
-    // This one's for having a bunch of sub-fields (eg. Sound, Gameplay). User specified
-    public readonly categories: ReviewField[];
-    public readonly writer: User;
-    public constructor(id: string, content: ReviewField, categories: ReviewField[], writer: User) {
-        this.id = id;
-        this.content = content;
-        this.categories = categories;
-        this.writer = writer;
+    public readonly productId: string;
+    public readonly authorId: string;
+    public contents: ReviewEdit[];
+    public constructor(productId: string, authorId: string, timestamp: Date, overall: ReviewField, categories: ReviewField[]) {
+        this.productId = productId;
+        this.authorId = authorId;
+        this.addEdit(timestamp, overall, categories);
+    }
+    public addEdit(timestamp: Date, overall: ReviewField, categories: ReviewField): void {
+        const e = ReviewEdit(timestamp, overall, categories);
+        this.contents.push(e);
     }
 }
