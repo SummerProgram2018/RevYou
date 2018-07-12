@@ -23,7 +23,20 @@ block content
                         input.form-control.submit(type="submit")
     main#index
         section.newReview
-            p="New Review"
+            //- each item in results
+            //-     +product(item)
+            //- mixin product(item)
+            .image-container
+                img(src="")
+            .desc
+                h3="itemname"
+                hr
+                p="itemdesc"
+            .stat
+                h6.orange-t="Type - " 
+                h6="Likes - 10231"
+                h6="Reviews - 643"
+            hr
         section.right
             section.popularUser
                 h1="Popular Users"
