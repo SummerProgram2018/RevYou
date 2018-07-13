@@ -17,10 +17,19 @@ block content
                         input.form-control.submit(type="submit")
     main#index
         section.newReview
-            p="New Review"
+            h1 People's Thoughts
+            each data in dataSet
+                section.review
+                    - var content = data.contents[0]
+                    h3
+                        a.dt-text(href="/profile/" + data.authorId)=data.authorId + " "
+                        | Says
+                        a.dt-text(href="/review/" + data.type + "/" + data.productId)=" " + data.item.name + " "
+                        | Is
+                        =" " + content.overall.title
+                    h6=content.timestamp
+                    p=content.overall.description
         section.right
             section.popularUser
-                h1="Popular Users"
-            section.unclearArea
-                h1="Unclear Area"
+                h1="Trending Users"
     script(type="text/javascript" src="/javascripts/index.js")

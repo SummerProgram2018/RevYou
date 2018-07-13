@@ -24,7 +24,6 @@ router.get("/:id", (req, res, next) => {
             const productIndex = dataSets[review.type].getData()
             .findIndex((e: Product) => String(e.id) === review.productId);
             reviewSet.push([review, dataSets[review.type].getData()[productIndex]]);
-
         }
     }
     res.render("profile", {
