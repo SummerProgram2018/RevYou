@@ -17,6 +17,7 @@ block content
                         input.form-control.submit(type="submit")
     main#index
         section.newReview
+<<<<<<< HEAD
             h1 People's Thoughts
             each data in dataSet
                 section.review
@@ -29,6 +30,24 @@ block content
                         =" " + content.overall.title
                     h6=content.timestamp
                     p=content.overall.description
+=======
+            mixin product(item)
+                section()
+                    .image-container
+                        img(src=item.imageLink)
+                    .desc
+                        h3=item.name
+                        hr
+                        p=item.desc
+                    .stat
+                        h6.dt-text="Type - " + item.type
+                        h6="Release Date - " + item.releaseDate
+                        h6="Ratings - " + item.score + "/100"
+                        h6="Likes - " + item.trackers.likes
+                        h6="Reviews - " + item.trackers.reviews
+                        a.view-details.dt-hover.dt-borderh(href="/review/" + item.type + "/" + item.id) 
+                            p View Details
+>>>>>>> 2550c01d10d6602dd70ee80d2f1bc37308e0ecab
         section.right
             section.popularUser
                 h1="Trending Users"
