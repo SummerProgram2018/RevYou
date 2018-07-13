@@ -21,14 +21,12 @@ block content
 						each sub in content.categories
 							h6=sub.title + ": " + sub.rating + "/100"
 						h6="Total Score: " + content.overall.rating + "/100"
+						.buttons
+							.button.dt-hover.dt-borderh
+								p="Like"
+							.button.dt-hover.dt-borderh
+								p="Comment"
+							.button.dt-hover.dt-borderh
+								p="Edit"
 			else
 				p Oops theres nothing here
-			section.buttons
-				a(href="#")
-					text="Edit"
-				span(style="padding-right:50px;")
-				a(href="#")
-					text="Like"
-				span(style="padding-right:50px;")
-				a(href="#")
-					text="Comment"

@@ -62,9 +62,27 @@ main#review {
     section.reviews {
         padding: 100px 200px 0 200px;
         .review {
-            margin-top: 50px;
+            margin-top: 80px;
         }
-    }
+        .buttons {
+            .button {
+                width: 100px;
+                height: 30px;
+                float: left;
+                text-align: center;
+                border: 1px solid lightgrey;
+                border-radius: 10px;
+                margin-right: 10px;
+                cursor: pointer;
+                .centerXYFlex;
+                .animate-standard(0.2s);
+                p {
+                    text-align: center;
+                    margin: 0;
+                }
+            }
+        }
+    }   
 }
 
 .dynamic-form.add-review-form {

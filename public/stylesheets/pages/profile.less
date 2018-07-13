@@ -36,7 +36,7 @@ main#profile {
 	section.reviews {
 		margin-top: 100px;
 		.review {
-			margin-top: 40px;
+			margin-bottom: 80px;
 		}
 	}
 	.profile-details {
@@ -70,26 +70,22 @@ main#profile {
 		.profile-recent-comments {
 
 		}
-		section.buttons {
-			width: 100%;
-			height: 50px;
-			padding: 0 200px 0 200px;
+	}
+	.buttons {
+		.button {
+			width: 100px;
+			height: 30px;
+			float: left;
+			text-align: center;
+			border: 1px solid lightgrey;
+			border-radius: 10px;
+			margin-right: 10px;
+			cursor: pointer;
 			.centerXYFlex;
-			a {
-				width: 200px;
-				height: 100%;
-				float: left;
+			.animate-standard(0.2s);
+			p {
 				text-align: center;
-				border: 1px solid lightgrey;
-				margin: 0 30px 0 30px;
-				border-radius: 10px;
-				cursor: pointer;
-				.centerXYFlex;
-				.animate-standard(0.2s);
-				text {
-					text-align: center;
-					margin: 0;
-				}
+				margin: 0;
 			}
 		}
 	}
