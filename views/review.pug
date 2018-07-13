@@ -1,6 +1,6 @@
 extends layout
 block content
-    main#review
+    main#review(pid=product.id, type=product.type)
         header
             section
                 .image-container
@@ -26,6 +26,16 @@ block content
             .button.dt-hover.dt-borderh
                 p Share
         section.reviews
+            each review in reviewSet
+                .review
+                    - var content = review.contents[0]
+                    a.dt-text(href="/profile/" + review.authorId)
+                        h3=review.authorId + " Says " + content.overall.title
+                    h6=content.timestamp
+                    p=content.overall.description
+                    each sub in content.categories
+                        h6=sub.title + ": " + sub.rating + "/100"
+                    h6="Total Score: " + content.overall.rating + "/100"
             each x in [1, 1, 1, 1, 1]
                 .review
                     h3 Anon says

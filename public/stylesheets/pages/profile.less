@@ -1,12 +1,18 @@
 main#profile {
+	padding: 0 200px 0 200px;
 	header {
 		background-color: @orange-c;
-		/*.centerXY;*/
+		border-radius: 10px;
 		height: 300px;
 		position: relative;
 		color: white;
 		.profile-header {
-			/*.centerXYFlex;*/
+			height: 100%;
+			.centerXYFlex;
+		}
+		.profile-name {
+			.centerX;
+			bottom: 0;
 		}
 		.user-details {
 			float: right;
@@ -25,6 +31,12 @@ main#profile {
 				float: right;
 				padding-right: 15px;
 			}
+		}
+	}
+	section.reviews {
+		margin-top: 100px;
+		.review {
+			margin-top: 40px;
 		}
 	}
 	.profile-details {
