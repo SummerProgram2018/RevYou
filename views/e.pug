@@ -1,0 +1,40 @@
+extends layout
+block content
+    main#review(pid="", type="")
+        header
+            section
+                .image-container
+                    img(src="/images/favicon-32x32.png")
+                .description
+                    h2="RevYou"
+                    .stars
+                        - var a = 0
+                        while a < 10
+                            .star.dt-bg
+                            - a++
+                    h5="Site" + " | " + "Coming Soon" + " | " + "100/100"
+                    p="RevYou is an aggregated review site, for the people by the people :)"
+        section.buttons
+            .button.dt-hover.dt-borderh
+                p Like
+            .button.add-review.dt-hover.dt-borderh
+                p Add Review
+            .button.dt-hover.dt-borderh
+                p Share
+        section.reviews
+            .review
+                a.dt-text(href="/profile/0")
+                    h3="James" + " Says " + "Good stuff"
+                h6="13/06/2018"
+                p="Very good"
+                h6="Total Score: " + "100" + "/100"
+            .buttons
+                .button.dt-hover.dt-borderh
+                    p="Like"
+                .button.dt-hover.dt-borderh
+                    p="Comment"
+            each x in [1, 1, 1, 1, 1]
+                .review
+                    h3 Anon says
+                    h6 15/06/2018
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

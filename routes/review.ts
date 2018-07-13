@@ -32,6 +32,9 @@ router.post("/:method", (req, res, next) => {
     res.send(new RevYouStatus(true, "Added review to DB"));
 });
 router.get("/:type/:id", (req, res, next) => {
+    if (req.params.type === "site" && req.params.id === "0") {
+        res.render("e");
+    }
     const data: any = {
         game: new ProductDatabase("src/data/games.json"),
         movie: new ProductDatabase("src/data/movies.json"),
