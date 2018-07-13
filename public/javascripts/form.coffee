@@ -33,7 +33,7 @@ $(document).ready =>
         if password.length < 5 then return $(".form-container .register-form .error").text("Password be at least 5 letters.")
         if password != cPassword then return $(".form-container .register-form .error").text("Password must match.")
         $(".form-container .register-form .error").text(" ")
-        submitData("user/newUser", {
+        submitData("/user/newUser", {
             username: username
             password: password
         }).then (res) =>
