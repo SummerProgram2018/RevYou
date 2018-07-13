@@ -20,6 +20,11 @@ $(document).ready =>
         $(".dt-text").css("color", rgb)
         $(".dt-bg").css("background-color", rgb)
         $(".dt-border").css("border-color", rgb)
+        submitData("/user/getSessionId", {}).then (uId) =>
+            submitData("/user/setSettings", {
+                uId
+                colour: $(this).attr("colour")
+            });
 
     $(".theme-selec .theme").hover ->
         colour = $(this).attr("colour")
