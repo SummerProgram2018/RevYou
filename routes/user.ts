@@ -33,6 +33,12 @@ router.post("/:method", (req, res, next) => {
         res.send(JSON.stringify(data[index].settings));
     };
     switch (req.params.method) {
+        case ("setSettings"):
+            userDb.editSettings(req.body.uId, "themes", {
+                contrast: req.body.colour,
+                light: true
+            });
+            break;
         case ("newUser"):
             response = userDb.addUser(new User(req.body.username, req.body.password));
             if (response.status) {

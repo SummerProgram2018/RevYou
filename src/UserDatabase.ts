@@ -40,13 +40,16 @@ export class UserDatabase extends Database implements IDatabase {
             }
         }
     }
-    public editSettings(uid: string, field: string, newFieldValue: string) {
+    public editSettings(uid: string, field: string, newFieldValue: {
+        contrast: string;
+        light: boolean;
+    }) {
         fs.readFile(this.db, (err: any, res: any) => {
             if (err) {
                 throw err;
             }
             const newData: User[] = JSON.parse(res);
-            const index = newData.findIndex(e => e.id === uid);
+            const index = newData.findIndex((e: User) => e.id === uid);
             newData[index].settings[field] = newFieldValue;
             fs.writeFileSync(this.db, JSON.stringify(newData));
         });
