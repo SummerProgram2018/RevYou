@@ -77,6 +77,57 @@ main#index {
         height: 100%;
         float: left;
         background-color: rgb(247, 189, 114);
+        section {
+            position: relative;
+            margin-top: 20px;
+            .image-container {
+                width: 400px;
+                height: 200px;
+                .centerXYFlex;
+                img {
+                    max-width: 400px;
+                    max-height: 200px;
+                    background-color: @orange-c;
+                }
+            }
+            .desc,
+            .stat {
+                position: absolute;
+                top: 0;
+                left: 410px;
+                width: 900px;
+                height: 200px;
+                padding-left: 10px;
+                border-left: 1px solid lightgrey;
+                hr {
+                    margin: 5px 0 5px 0;
+                }
+            }
+            .desc {
+                overflow: auto;
+            }
+            .stat {
+                left: 1320px;
+                h6 {
+                    text-transform: capitalize;
+                }
+            }
+            .view-details {
+                width: 150px;
+                height: 50px;
+                border: 1px solid lightgrey;
+                border-radius: 10px;
+                cursor: pointer;
+                color: @typography-dark;
+                .centerXYFlex;
+                &:hover {
+                    text-decoration: none;
+                }
+                p {
+                    margin: 0;
+                }
+            }
+        }
     }
     .right{
         width: 50%;
